@@ -12,6 +12,17 @@
 5. Module 5 - MVP Production
 6. Module 6 - Final Project Presentation Day
 
+## Daily Agendas
+
+| Module | Agenda |
+|---|---|
+| module-1 | [Open](./agendas/module-1-agenda.md) |
+| module-2 | [Open](./agendas/module-2-agenda.md) |
+| module-3 | [Open](./agendas/module-3-agenda.md) |
+| module-4 | [Open](./agendas/module-4-agenda.md) |
+| module-5 | [Open](./agendas/module-5-agenda.md) |
+| module-6 | [Open](./agendas/module-6-agenda.md) |
+
 ## Exercise Index
 
 | Module | Exercise | Title | Link |

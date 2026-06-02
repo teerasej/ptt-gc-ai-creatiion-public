@@ -4,55 +4,26 @@
 
 แบบฝึกหัดนี้จะพาเราสร้าง Agent ตัวตั้งต้นสำหรับ Module 2 โดยให้ได้ Agent ชื่อ **Financial Report Assistant** พร้อม instructions ที่พร้อมต่อยอดไปทำ Topic เดียวกันในแบบฝึกหัดถัดไป
 
-```mermaid
-flowchart TD
-    A[Open Copilot Studio] --> B[Create New Agent]
-    B --> C[Set name: Financial Report Assistant]
-    C --> D[Use prompt to generate instruction draft]
-    D --> E[Refine instruction to final scope]
-    E --> F[Save Agent]
-    F --> G[Smoke test 2-3 prompts]
-    G --> H[Ready for Exercise 2 Topic building]
-```
-
----
 
 ## Practice 1: สร้าง Agent ใหม่ใน Copilot Studio
 
 1. เปิด [https://copilotstudio.microsoft.com](https://copilotstudio.microsoft.com)
 2. เลือก Environment ที่ใช้เรียน
-3. กด **Create** หรือ **New Agent**
-4. ตั้งชื่อ Agent ว่า:
+3. จากเมนูทางด้านซ้ายกดเลือก **Agents** 
+4. กด **Create blank agent**
+5. ตั้งชื่อ Agent ว่า:
 
    ```
-   Financial Report Assistant [ชื่อตัวเอง]
+   Financial Report Assistant [ชื่อตัวเอง (ถ้าจำเป็น)]
    ```
 
-5. ตั้งคำอธิบายสั้นๆ ว่า Agent นี้ช่วยสรุปและวิเคราะห์รายงานการเงินรายเดือน
 
 ---
 
-## Practice 2: ใช้ Prompt สร้าง instruction draft
+## Practice 2: ใส่ instruction ฉบับพร้อมใช้งาน
 
-1. ในช่องสร้าง/แก้ไข instruction ให้คัดลอก prompt ด้านล่างเพื่อให้ระบบช่วยร่าง instruction:
-
-   ```
-   Generate a concise system instruction for a Copilot Studio agent named Financial Report Assistant.
-   The agent must support monthly financial reporting workflows for business users.
-   It should ask clarifying questions for missing period/BU/report format, summarize KPI and variance clearly,
-   and refuse out-of-scope requests politely.
-   Keep output professional, concise, and suitable for management updates.
-   ```
-
-2. อ่าน draft ที่ได้ แล้วเก็บจุดที่ต้องแก้ให้ตรงบริบทองค์กรของคุณ
-
-> 💡 **Tip:** ให้เน้นขอบเขตงาน (scope) และรูปแบบผลลัพธ์ (output format) ตั้งแต่ต้น จะช่วยลดการตอบหลุดประเด็นในขั้นถัดไป
-
----
-
-## Practice 3: ใส่ instruction ฉบับพร้อมใช้งาน
-
-1. ใช้ instruction template ด้านล่าง (ปรับคำได้ตามทีม):
+1. หลังจาก Agent ถูกสร้างขึ้น และพร้อมสำหรับการทำงานแล้ว ให้ลงมาที่ช่องด้านล่างที่ชื่อว่า **Instruction** แล้วกดปุ่ม **Edit** 
+2. ใช้ instruction template ด้านล่าง (ปรับคำได้ตามทีม):
 
    ```
    You are Financial Report Assistant for enterprise business users.
@@ -75,7 +46,7 @@ flowchart TD
    - End with risks and recommended next actions.
    ```
 
-2. กด **Save**
+3. กด **Save**
 
 ---
 

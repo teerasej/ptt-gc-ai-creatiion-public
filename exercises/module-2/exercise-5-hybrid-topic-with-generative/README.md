@@ -20,7 +20,7 @@ flowchart TD
 
 ---
 
-## Feature 1: แยกเจตนาแบบ structured vs knowledge
+## Practice 1: แยกเจตนาแบบ structured vs knowledge
 
 1. ใน Topic เดิม เพิ่ม **Condition** node ตรวจประเภทคำถาม
 2. กำหนดเงื่อนไขตัวอย่าง:
@@ -30,7 +30,7 @@ flowchart TD
 
 ---
 
-## Feature 2: เพิ่ม Create generative answers node
+## Practice 2: เพิ่ม Create generative answers node
 
 1. เพิ่ม **Create generative answers** node ในเส้นทางความรู้
 2. เลือกแหล่งข้อมูลที่เชื่อถือได้ (Knowledge) ที่เกี่ยวข้องกับการเงิน
@@ -40,7 +40,7 @@ flowchart TD
 
 ---
 
-## Feature 3: ออกแบบ fallback สำหรับคำถามความรู้ที่ตอบไม่ได้
+## Practice 3: ออกแบบ fallback สำหรับคำถามความรู้ที่ตอบไม่ได้
 
 1. หลัง generative node ให้เพิ่ม **Condition** ตรวจว่ามีคำตอบเพียงพอหรือไม่
 2. ถ้าตอบไม่ได้ ให้ส่งผู้ใช้ไป fallback path เช่น:
@@ -54,7 +54,7 @@ flowchart TD
 
 ---
 
-## Feature 4: ทดสอบทั้ง 2 เส้นทาง
+## Practice 4: ทดสอบทั้ง 2 เส้นทาง
 
 1. ทดสอบ structured prompt:
 

@@ -19,7 +19,7 @@ flowchart TD
 
 ---
 
-## Feature 1: สร้างข้อความ Draft รายงาน
+## Practice 1: สร้างข้อความ Draft รายงาน
 
 1. เพิ่ม **Message** node เพื่อแสดง draft สรุปจากตัวแปรที่วิเคราะห์ได้
 2. รูปแบบ draft อาจเป็น bullet points เช่น:
@@ -35,7 +35,7 @@ flowchart TD
 
 ---
 
-## Feature 2: สร้าง Revision Loop
+## Practice 2: สร้าง Revision Loop
 
 1. เพิ่ม **Question** node ถามว่าอยากแก้ไขรายงานหรือไม่
 2. เพิ่ม **Condition** node แตกเส้นทางเป็น:
@@ -48,7 +48,7 @@ flowchart TD
 
 ---
 
-## Feature 3: ปิดงานเมื่อผู้ใช้ยอมรับผลลัพธ์
+## Practice 3: ปิดงานเมื่อผู้ใช้ยอมรับผลลัพธ์
 
 1. ในเส้นทาง "ไม่ต้องการแก้ไข" ให้ส่ง Message ยืนยันว่า draft นี้เป็น final
 2. ใช้ **End current topic** หรือ redirect ไป topic ปิดบทสนทนา
@@ -56,7 +56,7 @@ flowchart TD
 
 ---
 
-## Feature 4: ทดสอบอย่างน้อย 2 รอบ revision
+## Practice 4: ทดสอบอย่างน้อย 2 รอบ revision
 
 1. ทดสอบคำสั่งเริ่มต้น:
 

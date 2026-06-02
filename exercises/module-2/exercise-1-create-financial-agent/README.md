@@ -17,7 +17,7 @@ flowchart TD
 
 ---
 
-## Feature 1: สร้าง Agent ใหม่ใน Copilot Studio
+## Practice 1: สร้าง Agent ใหม่ใน Copilot Studio
 
 1. เปิด [https://copilotstudio.microsoft.com](https://copilotstudio.microsoft.com)
 2. เลือก Environment ที่ใช้เรียน
@@ -32,7 +32,7 @@ flowchart TD
 
 ---
 
-## Feature 2: ใช้ Prompt สร้าง instruction draft
+## Practice 2: ใช้ Prompt สร้าง instruction draft
 
 1. ในช่องสร้าง/แก้ไข instruction ให้คัดลอก prompt ด้านล่างเพื่อให้ระบบช่วยร่าง instruction:
 
@@ -50,7 +50,7 @@ flowchart TD
 
 ---
 
-## Feature 3: ใส่ instruction ฉบับพร้อมใช้งาน
+## Practice 3: ใส่ instruction ฉบับพร้อมใช้งาน
 
 1. ใช้ instruction template ด้านล่าง (ปรับคำได้ตามทีม):
 
@@ -79,7 +79,7 @@ flowchart TD
 
 ---
 
-## Feature 4: Smoke test Agent ก่อนเริ่มสร้าง Topic
+## Practice 4: Smoke test Agent ก่อนเริ่มสร้าง Topic
 
 1. ทดสอบ prompt อย่างน้อย 2 ข้อ เช่น:
 

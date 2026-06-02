@@ -21,7 +21,7 @@ flowchart TD
 
 ---
 
-## Feature 1: ปรับ Fallback system topic
+## Practice 1: ปรับ Fallback system topic
 
 1. ไปที่ **Topics > System > Fallback**
 2. ปรับข้อความให้เข้ากับบริบทรายงานการเงิน เช่นให้ผู้ใช้ระบุเดือน/BU หรือเป้าหมายที่ชัดขึ้น
@@ -29,7 +29,7 @@ flowchart TD
 
 ---
 
-## Feature 2: ออกแบบ Escalation path ที่ชัดเจน
+## Practice 2: ออกแบบ Escalation path ที่ชัดเจน
 
 1. เมื่อถึงเงื่อนไขที่ต้องส่งต่อ ให้แจ้งผู้ใช้ว่า Agent จะโอนเรื่องให้ผู้รับผิดชอบ
 2. ถ้าองค์กรมีช่องทางชัดเจน ให้ระบุ เช่นทีม Finance Analyst หรือ Shared Services
@@ -39,7 +39,7 @@ flowchart TD
 
 ---
 
-## Feature 3: Mini test cycle (อย่างน้อย 10 test prompts)
+## Practice 3: Mini test cycle (อย่างน้อย 10 test prompts)
 
 1. สร้างชุดทดสอบ 3 กลุ่ม:
    - Happy path (4 เคส)
@@ -58,7 +58,7 @@ flowchart TD
 
 ---
 
-## Feature 4: ปรับ Instruction และ Prompt จากผลทดสอบ
+## Practice 4: ปรับ Instruction และ Prompt จากผลทดสอบ
 
 1. เปิดส่วน **Instructions** แล้วปรับตามจุดที่พบบ่อย เช่น:
    - บังคับ scope ให้ชัดเจนขึ้น

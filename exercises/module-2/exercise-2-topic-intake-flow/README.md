@@ -19,7 +19,7 @@ flowchart TD
 
 ---
 
-## Feature 1: สร้าง Topic และตั้ง Description สำหรับ Trigger
+## Practice 1: สร้าง Topic และตั้ง Description สำหรับ Trigger
 
 1. เข้า [https://copilotstudio.microsoft.com](https://copilotstudio.microsoft.com) แล้วเปิด Agent ของคุณ
 2. ไปที่ **Topics** และกด **Add a topic** เลือก **Blank Topic**
@@ -34,29 +34,32 @@ flowchart TD
    Typical requests include: "Please summarize the monthly financial report", "I need this month's report for BU GC", "Can you give me a monthly financial summary?"
    ```
 ![alt text](images/2026-06-02_15-15-27.png)
-> 💡 **Tip:** ให้ใส่ Trigger phrases หลายรูปแบบทั้งทางการและภาษาพูด เพื่อให้ Topic ติดได้เสถียรมากขึ้น
+> 💡 **Tip:** ใน Description ให้ระบุเจตนาของผู้ใช้อย่างชัดเจน ระบุข้อมูลที่มักยังขาด (เดือน, BU, รูปแบบรายงาน) และใส่ตัวอย่างคำขอที่หลากหลาย 2-3 แบบ เพื่อช่วยให้ Agent เลือก Topic นี้ได้แม่นยำขึ้น
 
 ---
 
-## Feature 2: ออกแบบคำถามเก็บข้อมูลด้วย Question node
+## Practice 2: ออกแบบคำถามเก็บข้อมูลด้วย Question node
 
-1. เพิ่ม **Message** node เพื่อบอกผู้ใช้ว่า Agent จะเก็บข้อมูลก่อนสร้างรายงาน
-2. เพิ่ม **Question** node เพื่อเก็บข้อมูลต่อไปนี้:
+1. ด้านล่าง Trigger node ให้คลิกปุ่ม **+** แล้วเลือก **Condition** node
+2. เพิ่ม **Message** node เพื่อบอกผู้ใช้ว่า Agent จะเก็บข้อมูลก่อนสร้างรายงาน
+3. เพิ่ม **Question** node เพื่อเก็บข้อมูลต่อไปนี้:
    - เดือนหรือช่วงเวลา
    - ชื่อหน่วยงานหรือ Business Unit
    - รูปแบบผลลัพธ์ (Executive summary, KPI summary, Detailed)
-3. บันทึกคำตอบแต่ละข้อไว้ในตัวแปร เช่น:
+4. บันทึกคำตอบแต่ละข้อไว้ในตัวแปร เช่น:
    - `Topic.ReportPeriod`
    - `Topic.BusinessUnit`
    - `Topic.ReportFormat`
 
 ---
 
-## Feature 3: เช็คความครบถ้วนด้วย Condition node
+## Practice 3: เช็คความครบถ้วนด้วย Condition node
 
-1. เพิ่ม **Condition** node ตรวจว่าแต่ละตัวแปรมีค่าหรือไม่
-2. ถ้าข้อมูลยังไม่ครบ ให้ส่งผู้ใช้กลับไปเติมข้อมูลที่ขาด
-3. ถ้าข้อมูลครบ ให้เพิ่ม **Message** node ยืนยันค่าทั้งหมดก่อนจบ Topic
+
+2. ตั้งชื่อ Condition ว่า `Check if all info is collected`
+2. เพิ่ม **Condition** node ตรวจว่าแต่ละตัวแปรมีค่าหรือไม่
+3. ถ้าข้อมูลยังไม่ครบ ให้ส่งผู้ใช้กลับไปเติมข้อมูลที่ขาด
+4. ถ้าข้อมูลครบ ให้เพิ่ม **Message** node ยืนยันค่าทั้งหมดก่อนจบ Topic
 
    ```
    รับข้อมูลเรียบร้อย: เดือน = {Topic.ReportPeriod}, BU = {Topic.BusinessUnit}, รูปแบบ = {Topic.ReportFormat}
@@ -66,7 +69,7 @@ flowchart TD
 
 ---
 
-## Feature 4: ทดสอบ Topic รอบแรก
+## Practice 4: ทดสอบ Topic รอบแรก
 
 1. เปิดหน้าต่าง **Test** ด้านขวา
 2. ทดสอบด้วยคำสั่ง:

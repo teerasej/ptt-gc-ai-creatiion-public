@@ -31,7 +31,7 @@ flowchart TD
 
 ---
 
-## Feature 1: เตรียมเส้นทางรับไฟล์และยืนยันข้อมูล
+## Practice 1: เตรียมเส้นทางรับไฟล์และยืนยันข้อมูล
 
 1. เปิด Topic `Monthly Report Intake` ที่สร้างจากแบบฝึกหัดก่อนหน้า แล้วเพิ่ม node ต่อจาก flow เดิม
 2. เพิ่ม **Message** node เพื่อแจ้งว่า Agent ต้องใช้ไฟล์ Excel raw data ชื่อ `CPALL-Monthly-Financial-Report-May2026.xlsx`
@@ -40,7 +40,7 @@ flowchart TD
 
 ---
 
-## Feature 2: เพิ่ม Tool node เพื่อเรียกการวิเคราะห์
+## Practice 2: เพิ่ม Tool node เพื่อเรียกการวิเคราะห์
 
 1. ไปที่ **Tools** แล้วเพิ่ม Action ที่ใช้วิเคราะห์ข้อมูล (เช่น Power Automate flow)
 2. กลับมาที่ Topic แล้วเพิ่ม **Tool node**
@@ -57,7 +57,7 @@ flowchart TD
 
 ---
 
-## Feature 3: จัดการผลลัพธ์สำเร็จ/ล้มเหลว
+## Practice 3: จัดการผลลัพธ์สำเร็จ/ล้มเหลว
 
 1. เพิ่ม **Condition** node ตรวจค่า status จาก Tool
 2. กรณีสำเร็จ:
@@ -70,7 +70,7 @@ flowchart TD
 
 ---
 
-## Feature 4: ทดสอบกรณีสำเร็จและกรณีผิดพลาด
+## Practice 4: ทดสอบกรณีสำเร็จและกรณีผิดพลาด
 
 1. ทดสอบเคสสำเร็จด้วยคำสั่ง:
 

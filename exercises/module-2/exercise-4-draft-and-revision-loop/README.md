@@ -4,6 +4,8 @@
 
 แบบฝึกหัดนี้จะทำให้ Topic เดิมสร้าง draft รายงานเบื้องต้น และเปิดรอบแก้ไขตาม feedback ของผู้ใช้ โดยใช้ **Topic management** และ **Condition** เพื่อวนกลับอย่างควบคุมได้
 
+> ⚠️ **Note:** แบบฝึกหัดนี้คาดหวังว่าแบบฝึกหัดที่ 3 ส่งค่าออกมาครบอย่างน้อย `Topic.TotalRevenue`, `Topic.TotalCost`, `Topic.VariancePercent`, และ `Topic.KeyRisk` จาก New Prompt node (และ Parse value ถ้ามี)
+
 ```mermaid
 flowchart TD
     A[Input: ผลวิเคราะห์พร้อมแล้ว] --> B[Message: แสดง Draft v1]

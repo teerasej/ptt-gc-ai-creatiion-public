@@ -2,7 +2,7 @@
 
 🔑 **ต้องการ M365 Copilot License + สิทธิ์เข้าใช้ Copilot Studio**
 
-หลังจากได้ข้อมูลความต้องการรายงานแล้ว แบบฝึกหัดนี้จะให้เราเพิ่ม **New Prompt node** เข้าไปใน Topic เดิม เพื่อวิเคราะห์ข้อมูลจากไฟล์ Excel ที่ผู้ใช้อัปโหลด และจัดการเส้นทางสำเร็จ/ไม่สำเร็จด้วย Condition
+หลังจากได้ข้อมูลความต้องการรายงานแล้ว แบบฝึกหัดนี้จะให้เราเพิ่ม **New Prompt node** เข้าไปใน Topic เดิม เพื่อวิเคราะห์ข้อมูลจากไฟล์ Excel ที่ผู้ใช้อัปโหลด แล้วส่งผลลัพธ์แบบ Markdown กลับมาแสดงในแชตทันที
 
 ## เตรียมไฟล์ที่ใช้ในแบบฝึกหัด
 
@@ -19,15 +19,9 @@
 ```mermaid
 flowchart TD
     A[Start from Intake output] --> B[Message: ขอไฟล์ Excel]
-    B --> C[Question: ยืนยันชื่อไฟล์/ตาราง]
-   C --> D[New Prompt Node: สร้างผลวิเคราะห์แบบ Markdown]
-   D --> E[Parse Value: กำหนด output data type]
-   E --> F{ผลลัพธ์ครบฟิลด์ที่ต้องใช้หรือไม่}
-   F -->|ครบ| G[Set Variables: KPI, Variance, KeyRisk]
-   F -->|ไม่ครบ| H[Message: แจ้งสาเหตุและให้แก้ข้อมูล]
-   H --> I[Redirect กลับจุดตรวจไฟล์]
-   I --> D
-   G --> J[Message: พร้อมสร้าง draft]
+   B --> C[New Prompt node: Analyze financial data]
+   C --> D[Message: แสดงผลวิเคราะห์ในแชต]
+   D --> E[End current topic]
 ```
 
 ---
@@ -60,16 +54,16 @@ flowchart TD
 ## Practice 2: เพิ่ม New Prompt node เพื่อวิเคราะห์ข้อมูล
 
 1. จาก node ล่าสุด ให้กด **+** แล้วเพิ่ม **Add a tools** > **New Prompt** node
-2. หลังจากเพิ่ม Node แล้ว ให้ตั้งชื่อว่า 
+2. หลังจากเพิ่ม Node แล้ว ให้ตั้งชื่อ Prompt นี้ว่า 
    ```
-   Analyze financial data
+   Analyze financial data from uploaded excel file
    ```
 3. เข้า Prompt editor ของ node นี้ แล้วสังเกตส่วนที่ชื่อ **Prompt assistant**
    ![alt text](2026-06-02_18-31-10.png)
 4. ศึกษาและใช้ prompt ด้านล่างนี้ใน Prompt assistant และกดส่ง prompt:
 
    ```
-   Analyze monthly financial data in the uploaded file, using ReportPeriod, BusinessUnit, ReportFormat as context. Return Markdown only. First provide a short Word-ready summary. Then append valid JSON with: TotalRevenue (number), TotalCost (number), VariancePercent (number), KeyRisk (string). If data is missing, state what is missing and return null values in JSON.
+   Analyze monthly financial data in the uploaded file, using ReportPeriod, BusinessUnit, ReportFormat as context. Return Markdown only. Start with a short Word-ready summary, then provide KPI summary, key risk, and notes about missing data or assumptions.
    ```
 
 5. ตรวจสอบผลลัพธ์ของการสร้าง prompt ถ้า prompt ที่สร้างมีตัวแปร input ดังภาพ (แต่ไม่จำเป็นต้องมี เราสามารถใส่เพิ่มเองได้ในขั้นตอนถัดไป)
@@ -142,74 +136,55 @@ flowchart TD
     - Financial data file: อัปโหลดไฟล์ `CPALL-Monthly-Financial-Report-May2026.xlsx` 
 12. กดปิดหน้าต่าง input แล้วกด **Save** เพื่อบันทึก prompt นี้
 13. กดปุ่ม Test ด้านบนขวาใน Prompt editor เพื่อทดสอบ prompt นี้ด้วยค่าที่ใส่ไว้ในขั้นตอนที่แล้ว
-14. ตรวจสอบผลลัพธ์ที่ได้ว่ามีทั้งส่วนสรุปครบถ้วนตาม prompt หรือไม่
+14. ตรวจสอบผลลัพธ์ที่ได้ว่ามีส่วนสรุป, KPI summary, Key Risk, และ Notes ครบถ้วนตาม prompt หรือไม่
 
 > ⚠️ **Note:** ในการทดสอบครั้งแรก อาจจะได้ผลลัพธ์ที่ไม่สมบูรณ์หรือมีข้อความแจ้งว่าข้อมูลไม่ครบ ซึ่งเป็นไปตามเงื่อนไขใน prompt ที่เราตั้งไว้ ให้ทดสอบปรับ Model ให้มีขนาดใหญ่ถึง เช่นจาก GPT-4mini เป็น GPT-4.1 เพื่อดูว่าผลลัพธ์มีความสมบูรณ์มากขึ้นหรือไม่
 
-1.  หลังจากได้ผลลัพธ์ที่ต้องการแล้ว ให้กด **Save** เพื่อกลับไปที่หน้า Topic flow
+15. หลังจากได้ผลลัพธ์ที่ต้องการแล้ว ให้กด **Save** เพื่อกลับไปที่หน้า Topic flow
+16. คลิกด้านบนของ node เพื่อตั้งชื่อ node นี้ว่า 
+    ```
+    Analyze financial data
+    ```
+17. คลิกตั้งชื่อตัวแปร Output ของ Prompt node > เลือก **Create new variable** และตั้งชื่อเป็น `FinancialAnalysisResult` เพื่อให้เราสามารถเรียกใช้ผลลัพธ์นี้ในขั้นตอนถัดไปได้
+![alt text](2026-06-03_14-26-02.png)
+
+18. กด **Save** เพื่อบันทึกการเปลี่ยนแปลงทั้งหมด
+---
+
+## Practice 3: แสดงผลลัพธ์จาก Prompt node ในแชต
+
+1. เพิ่ม **Message** node ถัดจาก New Prompt node
+2. ในข้อความของ Message node ให้แทรก output ของ node `Analyze financial data` เพื่อให้ผลวิเคราะห์ที่ Prompt สร้างขึ้นถูกส่งกลับมาที่แชตโดยตรง
+   ![alt text](2026-06-03_14-43-20.png)
+
+3. ตั้งชื่อ node นี้ให้สื่อความหมาย เช่น:
+
+   ```
+   Show financial analysis
+   ```
+
+4. กด **Save** 
+
+> 💡 **Tip:** ถ้าต้องการใช้ผลลัพธ์นี้ต่อในแบบฝึกหัดถัดไป ให้ใช้ output เดิมของ Prompt node นี้เป็นฐานสำหรับการแก้ไขได้ทันที โดยไม่ต้องเพิ่มขั้นตอนแปลงข้อมูลก่อน
 
 ---
 
-## Practice 3: กำหนด output data type ของ node (Parse value)
+## Practice 4: ทดสอบ flow (Test phase)
 
-1. เพิ่ม **Parse value** node ถัดจาก New Prompt node
-2. เลือก input เป็น output text ของ Prompt node
-3. ใน Parse value ให้เลือก **Get schema from sample JSON** แล้ววางตัวอย่าง:
-
-   ```json
-   {
-     "TotalRevenue": 120000000,
-     "TotalCost": 98000000,
-     "VariancePercent": 4.7,
-     "KeyRisk": "Energy cost volatility may impact next-month margin."
-   }
-   ```
-
-4. ตรวจว่าฟิลด์ถูกสร้างเป็นชนิดข้อมูลที่ใช้ต่อได้ (`number`, `number`, `number`, `string`)
-5. map output ที่ parse แล้วกลับเข้า Topic variables:
-   - `Topic.TotalRevenue`
-   - `Topic.TotalCost`
-   - `Topic.VariancePercent`
-   - `Topic.KeyRisk`
-
-> ⚠️ **Note:** ถ้าไม่ใช้ Parse value ให้ parse แบบข้อความล้วนได้ แต่มีความเสี่ยงที่รูปแบบเลขไม่สม่ำเสมอและทำให้เงื่อนไขในขั้นถัดไปตรวจสอบยากขึ้น
-
----
-
-## Practice 4: จัดการผลลัพธ์สำเร็จ/ล้มเหลว
-
-1. เพิ่ม **Condition** node เพื่อตรวจว่าผลลัพธ์ที่ต้องใช้ครบหรือไม่ (แทนการตรวจ status ของ Tool)
-2. ตัวอย่างเงื่อนไขฝั่งสำเร็จ:
-   - `Topic.TotalRevenue` is not blank
-   - `Topic.TotalCost` is not blank
-   - `Topic.VariancePercent` is not blank
-   - `Topic.KeyRisk` is not blank
-3. กรณีสำเร็จ:
-   - ส่ง Message สรุปตัวเลขหลัก
-   - บอกผู้ใช้ว่า Agent พร้อมสร้าง draft รายงาน
-4. กรณีไม่สำเร็จ:
-   - ส่ง Message อธิบายสาเหตุ (เช่น format ไม่ถูกต้อง)
-   - แนะนำขั้นตอนแก้ไข
-   - Redirect กลับไปถามข้อมูลไฟล์อีกครั้ง
-
----
-
-## Practice 5: ทดสอบกรณีสำเร็จและกรณีผิดพลาด
-
-1. ทดสอบเคสสำเร็จด้วยคำสั่ง:
-
-   ```
-   วิเคราะห์ไฟล์ CPALL-Monthly-Financial-Report-May2026.xlsx เดือน May ของ BU Olefins แล้วสรุป KPI ให้หน่อย
-   ```
-
-2. ทดสอบเคสผิดพลาดด้วยการใส่ชื่อไฟล์ที่ไม่มีอยู่ หรือส่งข้อมูลไม่ครบ
-3. ตรวจว่า output เป็น Markdown ที่คัดลอกไป Word ได้โดยไม่เสียโครงสร้างหัวข้อ/รายการ
-4. ตรวจว่า flow กลับไปถามข้อมูลใหม่ได้ และไม่จบการสนทนาแบบตัน
+1. กด **Test** เพื่อเริ่มทดสอบ flow ตั้งแต่ต้น
+2. ตอบ 3 คำถามแรกใน flow ด้วยค่าดังนี้:
+   - Report period: `May`
+   - Business unit: `Aromatic`
+   - Preferred report format: `Executive Summary`
+3. เมื่อระบบถามหาไฟล์ ให้ upload ไฟล์:
+   - `CPALL-Monthly-Financial-Report-May2026.xlsx`
+4. ตรวจว่า Prompt node ส่งผลลัพธ์วิเคราะห์แบบ Markdown กลับมาแสดงในแชตได้
+5. ถ้าผลลัพธ์ว่างหรือไม่สมบูรณ์ ให้ตรวจ input ทั้ง 3 ค่าและไฟล์ที่อัปโหลด แล้วทดสอบใหม่อีกครั้ง
 
 ---
 
 ## สรุป
 
-ในแบบฝึกหัดนี้ คุณได้เพิ่มความสามารถให้ Agent วิเคราะห์ข้อมูลด้วย New Prompt node, กำหนด output data type ด้วย Parse value, และควบคุมเส้นทางสำเร็จ/ล้มเหลวได้อย่างเป็นระบบ
+ในแบบฝึกหัดนี้ คุณได้เพิ่มความสามารถให้ Agent วิเคราะห์ข้อมูลด้วย New Prompt node และส่งผลลัพธ์แบบ Markdown กลับมาแสดงในแชตโดยตรง เพื่อเตรียมต่อยอดไปสู่ revision loop ในแบบฝึกหัดถัดไป
 
 ขั้นตอนถัดไป → [สร้าง Draft และ Revision Loop](../exercise-4-draft-and-revision-loop/README.md)

@@ -309,6 +309,6 @@ Provide the text to classify here: {{User Question}}
 
 ## สรุป
 
-ในแบบฝึกหัดนี้ คุณได้สร้าง Topic ใหม่ที่ route คำถามไป 2 โดเมนด้วย Prompt + Condition แล้วค้นจาก knowledge เฉพาะโดเมนผ่าน Custom Search Node ทำให้คำตอบแม่นขึ้นและควบคุมแหล่งข้อมูลได้ชัดเจน
+ในแบบฝึกหัดนี้ พวกเราได้สร้าง Topic ใหม่ที่ route คำถามไป 2 โดเมนด้วย Prompt + Condition แล้วค้นจาก knowledge เฉพาะโดเมนผ่าน Generative Answers Node ทำให้คำตอบแม่นขึ้นและควบคุมแหล่งข้อมูลได้ชัดเจน
 
 ขั้นตอนถัดไป → [ออกแบบ Fallback และ Mini Test Cycle](../exercise-6-fallback-and-mini-test/README.md)

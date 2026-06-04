@@ -7,6 +7,7 @@
 - [Finance dataset workbook](../../files/module-2/CPALL-Monthly-Financial-Report-May2026.xlsx)
 - [Knowledge file: technical terms](../../files/module-2/financial-report-technical-terms-knowledge.docx)
 - [Knowledge file: distribution policy](../../files/module-2/financial-report-distribution-policy-knowledge.docx)
+- [Mini test log template (Excel)](../../files/module-2/mini-test-log-template.xlsx)
 - [Dataset guide](../../files/module-2/README.md)
 
 ## Table of Contents

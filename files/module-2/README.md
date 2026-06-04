@@ -7,10 +7,17 @@
 - `CPALL-Monthly-Financial-Report-May2026.xlsx`
 - `CPALL-Monthly-Financial-Report-June2026.xlsx`
 
+## Knowledge Documents (Exercise 5)
+
+- `financial-report-technical-terms-knowledge.docx`
+- `financial-report-distribution-policy-knowledge.docx`
+
 ## Usage
 
 - Use the May workbook for the first pass of the Excel analysis exercise.
 - Use the June workbook to compare month-over-month changes or to retry the same flow with different values.
+- Use `financial-report-technical-terms-knowledge.docx` for the technical terms branch in Exercise 5.
+- Use `financial-report-distribution-policy-knowledge.docx` for the policy branch in Exercise 5.
 
 ## Workbook Structure
 

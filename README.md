@@ -22,5 +22,5 @@
 | module-2 | exercise-2-topic-intake-flow | ออกแบบ Topic รับความต้องการรายงานการเงิน | [Open](./exercises/module-2/exercise-2-topic-intake-flow/README.md) |
 | module-2 | exercise-3-excel-analysis-action | เชื่อมข้อมูล Excel และเรียก Action วิเคราะห์ | [Open](./exercises/module-2/exercise-3-excel-analysis-action/README.md) |
 | module-2 | exercise-4-draft-and-revision-loop | สร้าง Draft และ Revision Loop | [Open](./exercises/module-2/exercise-4-draft-and-revision-loop/README.md) |
-| module-2 | exercise-5-hybrid-topic-with-generative | ทำ Hybrid Topic: Structured + Generative | [Open](./exercises/module-2/exercise-5-hybrid-topic-with-generative/README.md) |
+| module-2 | exercise-5-hybrid-topic-with-generative | ทำ Hybrid Conversation ด้วย Agent Orchestration + Knowledge | [Open](./exercises/module-2/exercise-5-hybrid-topic-with-generative/README.md) |
 | module-2 | exercise-6-fallback-and-mini-test | ออกแบบ Fallback และ Mini Test Cycle | [Open](./exercises/module-2/exercise-6-fallback-and-mini-test/README.md) |

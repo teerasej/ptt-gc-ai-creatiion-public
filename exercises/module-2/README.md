@@ -18,7 +18,7 @@
 | exercise-2-topic-intake-flow | ออกแบบ Topic รับความต้องการรายงานการเงิน | [Open](./exercise-2-topic-intake-flow/README.md) |
 | exercise-3-excel-analysis-action | เชื่อมข้อมูล Excel และเรียก Action วิเคราะห์ | [Open](./exercise-3-excel-analysis-action/README.md) |
 | exercise-4-draft-and-revision-loop | สร้าง Draft และ Revision Loop | [Open](./exercise-4-draft-and-revision-loop/README.md) |
-| exercise-5-hybrid-topic-with-generative | ทำ Hybrid Topic: Structured + Generative | [Open](./exercise-5-hybrid-topic-with-generative/README.md) |
+| exercise-5-hybrid-topic-with-generative | ทำ Hybrid Conversation ด้วย Agent Orchestration + Knowledge | [Open](./exercise-5-hybrid-topic-with-generative/README.md) |
 | exercise-6-fallback-and-mini-test | ออกแบบ Fallback และ Mini Test Cycle | [Open](./exercise-6-fallback-and-mini-test/README.md) |
 
 ## ลำดับการเรียน
@@ -27,5 +27,5 @@
 2. ต่อด้วย [exercise-2-topic-intake-flow](./exercise-2-topic-intake-flow/README.md) เพื่อวางโครง Topic และตัวแปรหลักของ Topic เดียวกัน
 3. จากนั้นไปที่ [exercise-3-excel-analysis-action](./exercise-3-excel-analysis-action/README.md) เพื่อเพิ่ม node สำหรับเชื่อมข้อมูลและวิเคราะห์ต่อจาก Topic เดิม
 4. เรียน [exercise-4-draft-and-revision-loop](./exercise-4-draft-and-revision-loop/README.md) เพื่อเติม revision loop ลงใน Topic เดิม
-5. ต่อด้วย [exercise-5-hybrid-topic-with-generative](./exercise-5-hybrid-topic-with-generative/README.md) เพื่อขยาย Topic เดิมให้รองรับทั้ง structured flow และ generative answers
-6. ปิดท้ายด้วย [exercise-6-fallback-and-mini-test](./exercise-6-fallback-and-mini-test/README.md) เพื่อ harden Topic เดิมด้วย fallback, escalation, และการทดสอบทั้งระบบ
+5. ต่อด้วย [exercise-5-hybrid-topic-with-generative](./exercise-5-hybrid-topic-with-generative/README.md) เพื่อเปิดใช้ agent orchestration + knowledge ให้คุยแบบ hybrid ได้โดยไม่ต้องสร้าง Topic ใหม่ในโมดูลนี้
+6. ปิดท้ายด้วย [exercise-6-fallback-and-mini-test](./exercise-6-fallback-and-mini-test/README.md) เพื่อ harden Agent หลังเปิด hybrid conversation ด้วย fallback, escalation, และ mini test cycle

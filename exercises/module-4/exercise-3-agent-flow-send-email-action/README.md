@@ -1,10 +1,10 @@
-# แบบฝึกหัดที่ 2: เพิ่ม Agent Flow สำหรับส่งอีเมลรายงาน
+# แบบฝึกหัดที่ 3: เพิ่ม Agent Flow สำหรับส่งอีเมลรายงาน
 
 🔑 **ต้องการ M365 Copilot License + สิทธิ์เข้าใช้ Copilot Studio**
 
-แบบฝึกหัดนี้จะพาเราขยับจากงาน **RAG / Knowledge** ในแบบฝึกหัดก่อนหน้า ไปสู่การทำ **Action / Automation** ใน Copilot Studio โดยยังคงใช้สถานการณ์ของ `Financial Report Assistant` เดิม เพื่อให้ Agent ไม่ได้แค่วิเคราะห์รายงาน แต่สามารถส่งสรุปรายงานทางอีเมลไปยังผู้รับที่ต้องการได้ผ่าน **Agent Flow**
+แบบฝึกหัดนี้จะพาเราขยับต่อจากการเพิ่ม **Outlook Mail MCP** แบบ native tool ในแบบฝึกหัดก่อนหน้า ไปสู่การทำ **Action / Automation** ผ่าน **Agent Flow** ใน Copilot Studio โดยยังคงใช้สถานการณ์ของ `Financial Report Assistant` เดิม เพื่อให้ Agent ไม่ได้แค่วิเคราะห์รายงาน แต่สามารถส่งสรุปรายงานทางอีเมลไปยังผู้รับที่ต้องการได้ผ่าน flow ธุรกิจที่ควบคุม input, output, และข้อความตอบกลับได้ชัดเจนกว่าเดิม
 
-> ⚠️ **Note:** แบบฝึกหัดนี้คาดหวังว่าอย่างน้อยผู้เรียนได้ทำ Module 2 Exercise 1-3 มาก่อน เพื่อให้มี Agent `Financial Report Assistant`, Topic `Monthly Report Intake`, output ชื่อ `FinancialAnalysisResult`, และ Message node `Show financial analysis` พร้อมใช้งานแล้ว
+> ⚠️ **Note:** แบบฝึกหัดนี้คาดหวังว่าอย่างน้อยผู้เรียนได้ทำ Module 2 Exercise 1-3 และ Module 4 แบบฝึกหัดที่ 2 มาก่อน เพื่อให้มี Agent `Financial Report Assistant`, Topic `Monthly Report Intake`, output ชื่อ `FinancialAnalysisResult`, และมีภาพรวมการใช้ Outlook Mail MCP เป็น native tool อยู่แล้ว
 
 ```mermaid
 flowchart TD
@@ -39,7 +39,7 @@ flowchart TD
    - วิเคราะห์ข้อมูลจากไฟล์ Excel
    - เก็บผลลัพธ์ผ่านตัวแปร `FinancialAnalysisResult`
    - แสดงผลลัพธ์ในแชตผ่าน node `Show financial analysis`
-3. สังเกตว่าใน Module 4 แบบฝึกหัดที่ 1 เราเพิ่งฝึกเรื่องการ route คำถามความรู้ไปยัง knowledge source ที่เหมาะสม ส่วนแบบฝึกหัดนี้จะพาเราเพิ่มความสามารถอีกด้านหนึ่งคือ **ลงมือทำ action จริง** หลังจากได้ผลวิเคราะห์แล้ว
+3. สังเกตว่าใน Module 4 แบบฝึกหัดที่ 2 เราเพิ่งเพิ่ม native tool ให้ Agent ส่งอีเมลได้โดยตรง ส่วนแบบฝึกหัดนี้จะพาเราเพิ่มความสามารถอีกด้านหนึ่งคือ **ลงมือทำ action จริงผ่าน flow ที่ควบคุมได้มากขึ้น** หลังจากได้ผลวิเคราะห์แล้ว
 
 > 💡 **Tip:** ในช่วงแรกยังไม่จำเป็นต้องทำ workflow ซับซ้อน เช่นหลายขั้นตอนหรือเขียนกลับ SharePoint ให้เริ่มจาก action ที่มี input ชัดเจน ส่งอีเมลได้จริง และส่งข้อความตอบกลับได้ก่อน
 

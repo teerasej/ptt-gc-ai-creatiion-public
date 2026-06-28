@@ -8,7 +8,7 @@
 1. [Module 1 - Foundations: AI and Agents](./exercises/module-1/README.md)
 2. [Module 2 - Copilot Studio Core Build](./exercises/module-2/README.md)
 3. [Module 3 - Hardening and Deployment Preparation](./exercises/module-3/README.md)
-4. Module 4 - Core Engineering Day: RAG and Actions
+4. [Module 4 - Core Engineering Day: RAG and Actions](./exercises/module-4/README.md)
 5. Module 5 - MVP Production
 6. Module 6 - Final Project Presentation Day
 
@@ -29,3 +29,6 @@
 | module-3 | exercise-3-hardening-patterns | Hardening Patterns สำหรับ Agent | [Open](./exercises/module-3/exercise-3-hardening-patterns/README.md) |
 | module-3 | exercise-4-channel-and-publishing | เลือก Channel และ Publish Agent | [Open](./exercises/module-3/exercise-4-channel-and-publishing/README.md) |
 | module-3 | exercise-5-measurement-mindset | นิยาม Measurement Mindset และ UAT Readiness | [Open](./exercises/module-3/exercise-5-measurement-mindset/README.md) |
+| module-4 | exercise-1-hybrid-topic-with-generative | สร้าง Dual-Domain Generative Topic ด้วย Create Generative Answer Node | [Open](./exercises/module-4/exercise-1-hybrid-topic-with-generative/README.md) |
+| module-4 | exercise-2-add-outlook-mail-mcp-tool | เพิ่ม Outlook Mail MCP เป็น Tool ให้ Agent | [Open](./exercises/module-4/exercise-2-add-outlook-mail-mcp-tool/README.md) |
+| module-4 | exercise-3-agent-flow-send-email-action | เพิ่ม Agent Flow สำหรับส่งอีเมลรายงาน | [Open](./exercises/module-4/exercise-3-agent-flow-send-email-action/README.md) |

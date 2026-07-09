@@ -9,3 +9,7 @@ Sample files for exercises.
 
 - Knowledge file: [financial-report-technical-terms-knowledge.docx](./module-4/financial-report-technical-terms-knowledge.docx)
 - Knowledge file: [financial-report-distribution-policy-knowledge.docx](./module-4/financial-report-distribution-policy-knowledge.docx)
+
+## Module 5
+
+- Knowledge pack guide: [module-5/README.md](./module-5/README.md)

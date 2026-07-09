@@ -9,7 +9,7 @@
 2. [Module 2 - Copilot Studio Core Build](./exercises/module-2/README.md)
 3. [Module 3 - Hardening and Deployment Preparation](./exercises/module-3/README.md)
 4. [Module 4 - Core Engineering Day: RAG and Actions](./exercises/module-4/README.md)
-5. Module 5 - MVP Production
+5. [Module 5 - MVP Production](./exercises/module-5/README.md)
 6. Module 6 - Final Project Presentation Day
 
 ## Exercise Index
@@ -32,3 +32,7 @@
 | module-4 | exercise-1-hybrid-topic-with-generative | สร้าง Dual-Domain Generative Topic ด้วย Create Generative Answer Node | [Open](./exercises/module-4/exercise-1-hybrid-topic-with-generative/README.md) |
 | module-4 | exercise-2-add-outlook-mail-mcp-tool | เพิ่ม Outlook Mail MCP เป็น Tool ให้ Agent | [Open](./exercises/module-4/exercise-2-add-outlook-mail-mcp-tool/README.md) |
 | module-4 | exercise-3-agent-flow-send-email-action | เพิ่ม Agent Flow สำหรับส่งอีเมลรายงาน | [Open](./exercises/module-4/exercise-3-agent-flow-send-email-action/README.md) |
+| module-5 | exercise-1-trustworthy-answer-experience | ปรับ Agent ให้ตอบอย่างน่าเชื่อถือและไม่เดา | [Open](./exercises/module-5/exercise-1-trustworthy-answer-experience/README.md) |
+| module-5 | exercise-2-final-mvp-demo-rehearsal | Publish และซ้อม Final MVP Demo | [Open](./exercises/module-5/exercise-2-final-mvp-demo-rehearsal/README.md) |
+| module-5 | exercise-3-copilot-studio-analytics | ใช้ Copilot Studio Analytics เพื่อหา improvement ideas | [Open](./exercises/module-5/exercise-3-copilot-studio-analytics/README.md) |
+| module-5 | exercise-4-pilot-decision-pack | สรุปความพร้อมด้วย Pilot Decision Pack | [Open](./exercises/module-5/exercise-4-pilot-decision-pack/README.md) |

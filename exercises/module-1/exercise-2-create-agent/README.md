@@ -2,7 +2,7 @@
 
 🔑 **ต้องการ M365 Copilot License + สิทธิ์เข้าใช้ Copilot Studio**
 
-ในแบบฝึกหัดนี้ เราจะสร้าง **AI Agent** ตัวแรกของเราผ่าน **Copilot Studio** โดยใช้ **Prompt** เพื่อบอกหน้าที่ของ Agent ให้ชัดเจนตั้งแต่ต้น เป้าหมายคือสร้างผู้ช่วย HR สำหรับพนักงาน CPAll ที่ช่วยตอบคำถามเรื่อง **การเบิกค่าใช้จ่าย** และ **ข่าวสารหรือประกาศขององค์กร**
+ในแบบฝึกหัดนี้ เราจะสร้าง **AI Agent** ตัวแรกของเราผ่าน **Copilot Studio** โดยใช้ **Prompt** เพื่อบอกหน้าที่ของ Agent ให้ชัดเจนตั้งแต่ต้น เป้าหมายคือสร้างผู้ช่วย HR สำหรับพนักงาน PTT GC ที่ช่วยตอบคำถามเรื่อง **การเบิกค่าใช้จ่าย** และ **ข่าวสารหรือประกาศขององค์กร**
 
 > ⚠️ **หมายเหตุ:** ถ้ายังไม่มีสิทธิ์เข้า Copilot Studio ในองค์กร ให้ขอจาก IT Admin หรือทดลองดูขั้นตอนไปพร้อมกับเพื่อนที่มี license ก่อนได้เลย
 
@@ -37,7 +37,7 @@
 1. ในช่อง Prompt ให้คัดลอกข้อความด้านล่างนี้ไปวาง แล้วกด Enter:
 
    ```
-   You are a helpful HR assistant for CPAll employees. You help employees understand expense claim policy, and provide organization news or announcements. 
+   You are a helpful HR assistant for PTT GC employees. You help employees understand expense claim policy, and provide organization news or announcements. 
    ```
 
 2. Copilot Studio จะตอบรับและสรุปขอบเขตการทำงานของ Agent ให้ จากนั้นจะมีการกำหนดชื่อชั่วคราวให้ Agent นี้ เช่น "HR Assistant" หรือ "HR Bot" ขึ้นอยู่กับระบบ

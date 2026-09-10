@@ -55,7 +55,7 @@ flowchart LR
    - Published หรือมี approved fallback เมื่อ publish blocked
    - ผู้ใช้เป้าหมายเข้าถึง Agent ได้
    - Suggested prompts แสดงใน published experience
-   - Quotation demo ทำงานผ่าน XLSX, CSV หรือ prepared fallback
+   - Quotation demo เปรียบเทียบ PDF ทั้ง 3 ฉบับได้ หรือใช้ instructor-prepared conversation fallback ที่ได้รับอนุมัติ
    - Missing/conflicting data และ approval boundary ทำงานถูกต้อง
    - Monitor observation หรือ classroom fallback ถูกบันทึก
    - Owners และ KPI ครบ

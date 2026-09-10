@@ -4,8 +4,9 @@
 
 ## Module 2
 
-- [Vendor quotations workbook](./module-2/vendor-quotations-training.xlsx)
-- [Vendor quotations CSV fallback](./module-2/vendor-quotations-training.csv)
+- [Alpha Industrial quotation](./module-2/vendor-quotation-alpha-industrial.pdf)
+- [Beta Engineering quotation](./module-2/vendor-quotation-beta-engineering.pdf)
+- [Gamma Supply quotation](./module-2/vendor-quotation-gamma-supply.pdf)
 - [Mini-test log](./module-2/mini-test-log-template.xlsx)
 - [Optional procurement references](./module-2/README.md)
 

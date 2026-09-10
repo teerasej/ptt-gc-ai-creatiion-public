@@ -7,7 +7,9 @@
 ## Prerequisites
 
 - `PTT GC Vendor Comparison Assistant` จาก Module 2
-- [Vendor quotations CSV fallback](../../../files/module-2/vendor-quotations-training.csv)
+- [ใบเสนอราคา Alpha Industrial](../../../files/module-2/vendor-quotation-alpha-industrial.pdf)
+- [ใบเสนอราคา Beta Engineering](../../../files/module-2/vendor-quotation-beta-engineering.pdf)
+- [ใบเสนอราคา Gamma Supply](../../../files/module-2/vendor-quotation-gamma-supply.pdf)
 
 ---
 
@@ -19,7 +21,7 @@
    - ชื่อและ Description ระบุว่าเปรียบเทียบ quotation
    - Instructions มี clarification, don't guess และ approval boundary
    - Suggested prompts มีอย่างน้อยสามรายการที่ `Overview`
-   - CSV fallback พร้อมใช้งาน
+   - ใบเสนอราคา PDF ทั้ง 3 ฉบับพร้อมใช้งาน
    - complete และ missing-data tests ผ่าน
 2. แก้เฉพาะรายการที่ยังไม่ครบก่อนดำเนินการ
 

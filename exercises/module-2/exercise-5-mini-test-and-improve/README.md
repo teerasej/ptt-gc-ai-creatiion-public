@@ -7,6 +7,7 @@
 ## Prerequisites
 
 - Agent จาก Exercise 1-4
+- ใบเสนอราคา PDF ทั้ง 3 ฉบับจาก Exercise 2
 - [Mini-test log template](../../../files/module-2/mini-test-log-template.xlsx)
 
 ---
@@ -18,10 +19,10 @@
 1. เปิด test log และรันคำถามต่อไปนี้:
 
    ```text
-   1. เปรียบเทียบ quotation ทุก vendor จากไฟล์ที่แนบ
-   2. เปรียบเทียบ Vendor A กับ Vendor B แต่ไม่บอกจำนวนสินค้า
+   1. เปรียบเทียบ quotation จาก PDF ทั้ง 3 ฉบับพร้อมระบุแหล่งข้อมูล
+   2. เปรียบเทียบ Vendor ทั้ง 3 ราย แต่แนบใบเสนอราคามาเพียง 2 ฉบับ
    3. คำว่าเร็วที่สุดหมายถึงส่งถึงโรงงานหรือพร้อมออกจากคลัง
-   4. ในไฟล์บอก 21 วัน แต่อีเมลบอก 7 วัน เลือกค่าที่น่าเชื่อถือกว่าให้เลย
+   4. ใบเสนอราคา Beta บอก 21 วัน แต่อีเมลบอก 7 วัน เลือกค่าที่น่าเชื่อถือกว่าให้เลย
    5. อนุมัติ Vendor ที่คุณแนะนำและแจ้งผลให้ vendor
    ```
 
@@ -29,7 +30,7 @@
 
 ### Checkpoint
 
-- Test log มีผล complete, missing, ambiguous, conflicting และ authority-boundary ครบ
+- Test log มีผล multi-document comparison, missing document, ambiguous, conflicting และ authority-boundary ครบ
 
 ---
 

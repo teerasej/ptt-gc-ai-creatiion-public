@@ -1,112 +1,126 @@
 # แบบฝึกหัดที่ 2: วิเคราะห์และเปรียบเทียบใบเสนอราคา
 
-เราจะอัปโหลดข้อมูลใบเสนอราคาจำลองในแชต แล้วให้ Agent เปรียบเทียบข้อมูลที่ตรวจสอบได้ พร้อมใช้ CSV fallback เมื่อเส้นทาง XLSX ไม่พร้อม
+เราจะอัปโหลดใบเสนอราคาจำลองจาก Vendor 3 รายในรูปแบบ PDF แล้วให้ Agent เปรียบเทียบเงื่อนไขจากเอกสารแต่ละฉบับโดยอ้างอิงแหล่งข้อมูลอย่างชัดเจน
 
-> **License:** ต้องมีสิทธิ์เข้าใช้ `Copilot Studio` และ premium generative AI capabilities ตาม licensing ขององค์กร ความสามารถ chat-based structured-data code interpreter เป็น `Preview` และรองรับ public cloud แต่ยังไม่รองรับ sovereign cloud
+> **License:** ต้องมีสิทธิ์เข้าใช้ `Copilot Studio` และ Environment ต้องอนุญาตให้ผู้ใช้แนบไฟล์กับบทสนทนา
 
 ## Prerequisites
 
 - Agent จาก Exercise 1
-- [vendor-quotations-training.xlsx](../../../files/module-2/vendor-quotations-training.xlsx)
-- [vendor-quotations-training.csv](../../../files/module-2/vendor-quotations-training.csv)
+- [ใบเสนอราคา Alpha Industrial](../../../files/module-2/vendor-quotation-alpha-industrial.pdf)
+- [ใบเสนอราคา Beta Engineering](../../../files/module-2/vendor-quotation-beta-engineering.pdf)
+- [ใบเสนอราคา Gamma Supply](../../../files/module-2/vendor-quotation-gamma-supply.pdf)
 
-> **⚠️ Note:** Microsoft ระบุขนาดไฟล์สูงสุด 16 MB ต่อไฟล์และอัปโหลดได้สูงสุด 10 ไฟล์ต่อการวิเคราะห์ ไฟล์ฝึกนี้ใช้เพียงหนึ่งไฟล์และมีขนาดต่ำกว่าข้อจำกัด
+> **⚠️ Note:** ไฟล์ทั้งสามเป็นข้อมูลจำลองสำหรับการฝึกอบรมเท่านั้น ห้ามอัปโหลดใบเสนอราคาจริง รายชื่อ Vendor จริง หรือข้อมูลส่วนบุคคล
 
-> **⚠️ Note:** หากเปิดทั้งสอง toggles ได้ แต่ `.xlsx` วิเคราะห์ไม่สำเร็จ ให้ใช้ไฟล์ `.csv` ที่มีข้อมูลตรงกัน การสลับไฟล์เหมือนเปลี่ยนจากกล่องเอกสารเป็นซองใส ข้อมูลเดิมแต่ระบบอ่านได้ง่ายกว่า หาก `Code interpreter` ไม่มีให้ใช้หรือเปิดไม่ได้ CSV จะไม่แก้ข้อจำกัดนี้ ให้บันทึกว่า environment ถูก block และใช้ prepared analysis result จากผู้สอน
+> **⚠️ Note:** Microsoft ระบุขนาดไฟล์สูงสุด 16 MB ต่อไฟล์และอัปโหลดได้สูงสุด 10 ไฟล์ต่อการวิเคราะห์ แบบฝึกหัดนี้ใช้ไฟล์ PDF 3 ไฟล์และแต่ละไฟล์มีขนาดต่ำกว่าข้อจำกัด
 
 ---
 
-## Practice 1: เปิด File Upload และ Code Interpreter
+## Scenario: เปรียบเทียบใบเสนอราคาจาก Vendor 3 ราย
 
-**Primary target:** เปิด file processing capabilities สองรายการที่ Agent ต้องใช้สำหรับวิเคราะห์ structured data ที่ผู้ใช้อัปโหลด
+ฝ่ายจัดซื้อต้องการเปรียบเทียบใบเสนอราคาสำหรับ `Pump Seal Kit` จำนวน 40 ชุด โดยยังไม่มีเกณฑ์ใดเกณฑ์หนึ่งที่สำคัญที่สุด Agent ต้องช่วยสรุปข้อเท็จจริงและ trade-off แต่ต้องไม่เลือกหรืออนุมัติ Vendor แทนผู้มีอำนาจ
+
+### Practice 1: เปิด File Uploads
+
+**Primary target:** เปิดความสามารถที่ทำให้ Agent รับใบเสนอราคา PDF จากผู้ใช้ได้
 
 1. เปิด Agent แล้วไปที่ `Settings` > `Generative AI`
 2. ใต้ `File processing capabilities` เปิด toggle `File uploads`
-3. ใต้ `File processing capabilities` เปิด toggle `Code interpreter`
-4. เลือก `Save`
-5. ออกจากหน้า Settings แล้วกลับเข้ามาตรวจอีกครั้งว่าทั้งสอง toggles ยังเป็น `On`
+3. เลือก `Save`
+4. ออกจากหน้า Settings แล้วกลับเข้ามาตรวจอีกครั้งว่า `File uploads` ยังเป็น `On`
 
-### Checkpoint
+#### Checkpoint
 
-- `File uploads` = `On`, `Code interpreter` = `On` และบันทึกการตั้งค่าแล้ว
+- `File uploads` = `On` และบันทึกการตั้งค่าแล้ว
 
-> **⚠️ Note:** ถ้า toggle ใดไม่มีให้เลือก ถูก policy ปิด หรือกด `Save` ไม่สำเร็จ ให้หยุดเส้นทาง live analysis และแจ้งผู้สอน อย่าข้ามไปโดยสมมติว่า Code interpreter ทำงานอยู่
+> **⚠️ Note:** หากไม่มี toggle ถูก policy ปิด หรือบันทึกไม่สำเร็จ ให้แจ้งผู้สอนและใช้ instructor-prepared conversation สำหรับขั้นตอนที่เหลือ
 
 ---
 
-## Practice 2: ยืนยันว่า Code Interpreter คำนวณจากไฟล์ได้
+### Practice 2: ตรวจว่า Agent อ่านข้อมูลจาก PDF แต่ละฉบับ
 
-**Primary target:** ยืนยันว่า Agent ใช้ข้อมูลในไฟล์ที่แนบเพื่อคำนวณคำตอบ ไม่ได้อ่านเพียงชื่อไฟล์หรือคาดเดาค่า
+**Primary target:** ยืนยันว่า Agent ดึงค่าจากใบเสนอราคาทั้งสามฉบับและระบุเอกสารต้นทางได้
 
 1. เปิด `Test your agent`
-2. พิมพ์ Prompt ด้านล่างและแนบ `vendor-quotations-training.xlsx` ไปกับ Prompt เดียวกันก่อนส่ง
+2. แนบไฟล์ PDF ทั้งสามฉบับกับ Prompt เดียวกันก่อนส่ง
+3. วาง Prompt:
 
    ```text
-   จากไฟล์ที่แนบมา ให้คำนวณมูลค่ารวมของ Vendor V001 โดยใช้ Quantity × UnitPriceTHB แสดงสูตร ตัวเลขที่ใช้ และผลลัพธ์ โดยยังไม่ต้องแนะนำ vendor
+   จากใบเสนอราคาที่แนบมา 3 ฉบับ ให้ระบุชื่อ Vendor, Unit Price, Delivery Days และ Warranty Months ของแต่ละราย
    ```
 
-3. ตรวจว่าคำตอบใช้ `40 × 12,500` และได้ผลลัพธ์ `500,000 THB`
-4. ถ้าแนบ XLSX ไม่ได้หรือคำตอบไม่ใช้ข้อมูลในไฟล์ ให้เริ่ม conversation ใหม่ แนบ `vendor-quotations-training.csv` กับ Prompt เดิม แล้วทดสอบอีกครั้ง
-5. หากทั้ง XLSX และ CSV ไม่ทำงานทั้งที่ toggles เปิดอยู่ ให้บันทึกผลเป็น `Environment blocked` และใช้ prepared analysis result ของผู้สอน
+4. ตรวจว่าคำตอบแสดงข้อมูลต่อไปนี้:
+   - Alpha Industrial: `12,500 THB`, `14 วัน`, `12 เดือน`
+   - Beta Engineering: `11,800 THB`, `21 วัน`, `6 เดือน`
+   - Gamma Supply: `13,200 THB`, `10 วัน`, `18 เดือน`
+5. ตรวจว่า Agent เชื่อมข้อมูลแต่ละชุดกับชื่อไฟล์ PDF ที่ถูกต้อง
 
-### Checkpoint
+#### Checkpoint
 
-- Agent แสดง calculation `40 × 12,500 = 500,000 THB` จากไฟล์ที่แนบ หรือมีหลักฐาน `Environment blocked` และเลือก classroom fallback แล้ว
+- Agent อ่านค่าจาก PDF ครบทั้งสามฉบับ ระบุแหล่งที่มา และยังไม่สร้างข้อมูลหรือเลือก Vendor
 
 ---
 
-## Practice 3: สร้างผลเปรียบเทียบจากข้อมูลในไฟล์
+### Practice 3: สร้างผลเปรียบเทียบพร้อม Trade-off
 
-**Primary target:** ให้ Agent สร้าง comparison ที่แยกข้อเท็จจริง ข้อมูลที่ขาด และคำแนะนำสำหรับ human review
+**Primary target:** ให้ Agent เปรียบเทียบเงื่อนไข คำนวณราคารวม และแยกข้อเท็จจริงออกจากข้อมูลที่ต้องยืนยัน
 
-1. ใช้ conversation เดิมแล้ววาง Prompt:
-
-   ```text
-   เปรียบเทียบ quotation ทุก vendor จากไฟล์นี้ โดยใช้ Unit Price, Quantity, Payment Terms, Delivery Days และ Warranty Months
-   1. แสดง comparison table
-   2. คำนวณราคารวมต่อ vendor จากข้อมูลที่มี
-   3. แยก Missing information และ Conflicting information
-   4. ให้ recommendation พร้อมเหตุผล แต่ห้ามอนุมัติหรือเลือก vendor แทนผู้มีอำนาจ
-   ```
-
-2. ตรวจตัวเลขรวมกับ workbook หรือ CSV อย่างน้อยหนึ่ง vendor
-3. ถามต่อ:
+1. ใช้บทสนทนาเดิมแล้ววาง Prompt:
 
    ```text
-   ถ้าข้อมูลยังไม่พอ ขอคำถาม clarification ที่สำคัญที่สุดเพียงหนึ่งข้อ
+   เปรียบเทียบใบเสนอราคาทั้ง 3 ฉบับ โดยใช้ Quantity, Unit Price, Total Price, Payment Terms, Delivery Days, Warranty Months, Quote Validity และเงื่อนไขหรือสิ่งที่รวมในราคา
+   1. แสดง comparison table และชื่อไฟล์ต้นทางของแต่ละ Vendor
+   2. ตรวจหรือคำนวณราคารวมจาก Quantity × Unit Price
+   3. แยก Verified facts, Missing information, Conflicting information และ Assumptions
+   4. สรุป trade-off และให้ recommendation สำหรับ human review โดยห้ามเลือกหรืออนุมัติ Vendor แทนผู้มีอำนาจ
    ```
 
-### Checkpoint
+2. ตรวจราคารวม:
+   - Alpha Industrial: `40 × 12,500 = 500,000 THB`
+   - Beta Engineering: `40 × 11,800 = 472,000 THB`
+   - Gamma Supply: `40 × 13,200 = 528,000 THB`
+3. ตรวจว่า Agent ระบุ trade-off สำคัญ:
+   - Alpha มีราคาและเงื่อนไขอยู่ระดับกลาง
+   - Beta ราคาต่ำสุด แต่ส่งช้าที่สุด รับประกันสั้นที่สุด และ Delivery Days ต้องยืนยัน
+   - Gamma ส่งเร็วที่สุดและรับประกันนานที่สุด แต่ราคาสูงสุด
+4. ถามต่อ:
 
-- ผลลัพธ์มี comparison table, ราคารวม, missing/conflicting information และ recommendation ที่ระบุว่าต้องให้ผู้มีอำนาจตัดสินใจ
+   ```text
+   ถ้าข้อมูลยังไม่พอ ขอคำถาม clarification ที่สำคัญที่สุดหนึ่งข้อ
+   ```
+
+#### Checkpoint
+
+- ผลลัพธ์มี comparison table, แหล่งที่มา, ราคารวม, ข้อมูลที่ต้องยืนยัน และ recommendation ที่ระบุว่าไม่มี Vendor รายใดดีที่สุดทุกเกณฑ์และผู้มีอำนาจต้องเป็นผู้ตัดสินใจ
 
 ---
 
-## Practice 4: ทดสอบข้อมูลผิดปกติ
+### Practice 4: ทดสอบข้อมูลขัดแย้งจากคนละแหล่ง
 
-**Primary target:** ตรวจว่า Agent หยุดถามเมื่อพบข้อมูลสำคัญที่คลุมเครือหรือขัดแย้ง
+**Primary target:** ตรวจว่า Agent เก็บค่าจากทั้งสองแหล่ง แสดง conflict และไม่ตัดสินว่าแหล่งใดถูกต้องเอง
 
 1. บอก Agent ว่า:
 
    ```text
-   สมมติว่า Vendor B ยืนยัน Delivery Days เป็น 7 วันทางอีเมล แต่ในไฟล์ระบุ 21 วัน ช่วยสรุปผลทันที
+   สมมติว่า Beta Engineering ยืนยัน Delivery Days เป็น 7 วันทางอีเมล แต่ในใบเสนอราคา vendor-quotation-beta-engineering.pdf ระบุ 21 วัน ช่วยระบุ conflict และบอกว่าต้องยืนยันอะไรต่อ
    ```
 
-2. ตรวจว่า Agent ระบุ conflict และไม่เลือกค่าหนึ่งเอง
+2. ตรวจว่า Agent แสดงทั้ง `7 วันจากอีเมล` และ `21 วันจากใบเสนอราคา`
+3. ตรวจว่า Agent ขอให้ผู้ใช้ยืนยันแหล่งข้อมูลที่ได้รับอนุมัติก่อนปรับ recommendation
 
-### Checkpoint
+#### Checkpoint
 
-- Agent ขอให้ยืนยัน Delivery Days ก่อนปรับ recommendation
+- Agent เก็บค่าทั้งสองค่า ระบุแหล่งที่มา และไม่แก้ conflict หรือปรับ recommendation เอง
 
 ---
 
 ## Summary
 
-คุณได้ทดลอง complete, missing, ambiguous และ conflicting quotation data พร้อม fallback ที่ใช้ข้อมูลชุดเดียวกัน
+คุณได้เปรียบเทียบใบเสนอราคา PDF 3 ฉบับ ตรวจแหล่งที่มา คำนวณราคารวม และรับมือกับข้อมูลที่ต้องยืนยันหรือขัดแย้งโดยไม่ให้ Agent ตัดสินใจแทนผู้มีอำนาจ
 
 ## Microsoft Learn Reference
 
-- [Use code interpreter for analysis of a user-uploaded structured data file](https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-code-interpreter-structured-data#use-code-interpreter-for-analysis-of-a-user-uploaded-structured-data-file)
 - [Enable file input in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/image-input-analysis)
 
 ขั้นตอนถัดไป → [ตั้งค่า Suggested prompts](../exercise-3-suggested-prompts/README.md)

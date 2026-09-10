@@ -1,0 +1,4 @@
+VendorID,VendorName,Item,Quantity,UnitPriceTHB,PaymentTerms,DeliveryDays,WarrantyMonths,QuoteValidityDays,Notes
+V001,Alpha Industrial,Pump Seal Kit,40,12500,30 days,14,12,30,Includes standard installation guide
+V002,Beta Engineering,Pump Seal Kit,40,11800,45 days,21,6,14,Delivery date requires confirmation
+V003,Gamma Supply,Pump Seal Kit,40,13200,30 days,10,18,30,Expedited delivery included

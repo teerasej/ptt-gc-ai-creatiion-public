@@ -1,31 +1,25 @@
-# Module 5: MVP Production
+# Module 5: Publish, Demonstrate, Monitor, and Pilot Readiness
 
-หน้านี้เป็นสารบัญของแบบฝึกหัดใน Module 5 โดยโฟกัสที่การสร้าง **Agent ใหม่สำหรับ Module นี้โดยเฉพาะ** แล้วพาไปต่อจนถึงการซ้อม demo, การดู Analytics และการตัดสินใจว่าพร้อมเข้าสู่ pilot หรือยัง
+Module นี้นำ `PTT GC Vendor Comparison Assistant` จาก Module 2 มาใช้งานต่อ เพื่อลดความเสี่ยงด้าน deployment และฝึกวงจร production readiness โดยไม่ต้องพึ่ง Financial Agent, Agent Flow หรือ Work IQ Mail MCP
 
-🔑 **ต้องการ M365 Copilot License + สิทธิ์เข้าใช้ Copilot Studio + สิทธิ์ publish ไปยัง Microsoft 365 Copilot **
+> **License:** ต้องมีสิทธิ์เข้าใช้ `Copilot Studio`, publish Agent และเพิ่ม Agent ไปยัง channel ที่องค์กรอนุญาต ผู้สอนต้องตรวจสอบ policy การติดตั้งและแชร์ก่อนเริ่มอบรม
 
-## Support Files
+## Required Path
 
-- [Module 5 knowledge pack guide](../../files/module-5/README.md)
+**Exercise 2 → 3 → 4 → 5**
 
-## Table of Contents
+Exercise 1 เป็น optional และไม่ใช่ prerequisite. Exercise 2 มี minimum readiness checks ครบสำหรับผู้เรียนที่ข้าม Exercise 1
 
-| Exercise | Title | Link |
+| Exercise | Status | Title |
 |---|---|---|
-| exercise-1-trustworthy-answer-experience | ปรับ Agent ให้ตอบอย่างน่าเชื่อถือและไม่เดา | [Open](./exercise-1-trustworthy-answer-experience/README.md) |
-| exercise-2-final-mvp-demo-rehearsal | Publish และซ้อม Final MVP Demo | [Open](./exercise-2-final-mvp-demo-rehearsal/README.md) |
-| exercise-3-copilot-studio-analytics | ใช้ Copilot Studio Analytics เพื่อหา improvement ideas | [Open](./exercise-3-copilot-studio-analytics/README.md) |
-| exercise-4-pilot-decision-pack | สรุปความพร้อมด้วย Pilot Decision Pack | [Open](./exercise-4-pilot-decision-pack/README.md) |
+| [Exercise 1](./exercise-1-trustworthy-answer-experience/README.md) | Optional | Trustworthy Answers and UX Tune-up |
+| [Exercise 2](./exercise-2-final-mvp-demo-rehearsal/README.md) | Required | Readiness, Publish, Install, and Access |
+| [Exercise 3](./exercise-3-vendor-comparison-demo/README.md) | Required | Vendor Comparison Demo |
+| [Exercise 4](./exercise-4-monitor-and-improve/README.md) | Required | Monitor and Improve |
+| [Exercise 5](./exercise-5-vendor-comparison-pilot-pack/README.md) | Required | Vendor Comparison Pilot Decision Pack |
 
-## ลำดับการเรียน
+## Learner Output
 
-1. เริ่มที่ [exercise-1-trustworthy-answer-experience](./exercise-1-trustworthy-answer-experience/README.md) เพื่อสร้าง Agent ใหม่ของ Module 5 และปรับ instructions ให้ตอบแบบ trustworthy
-2. ต่อด้วย [exercise-2-final-mvp-demo-rehearsal](./exercise-2-final-mvp-demo-rehearsal/README.md) เพื่อเปิด channel, publish และซ้อม demo script ชุดเดียวกันทั้งห้อง
-3. ไปที่ [exercise-3-copilot-studio-analytics](./exercise-3-copilot-studio-analytics/README.md) เพื่ออ่านข้อมูลจาก published usage และแปลงเป็นข้อเสนอปรับปรุง
-4. ปิดท้ายด้วย [exercise-4-pilot-decision-pack](./exercise-4-pilot-decision-pack/README.md) เพื่อสรุป readiness ของ Agent ตัวนี้ก่อนเข้าสู่ controlled pilot
+Published Vendor Comparison Agent, demo run sheet, Monitor observation และ Pilot Decision Pack ที่ตัดสิน `Go to pilot` หรือ `Fix first`
 
-> 💡 Tip: Module นี้ใช้ **Agent ใหม่ตัวเดียว** ตลอดทั้ง 4 แบบฝึกหัด และไม่ต่อยอดจาก Agent ที่เคยสร้างใน Module ก่อนหน้า
-
-## Next Step
-
-หลังจบ Module 5 ให้กลับไปเตรียม final showcase และสรุปผลการทดลองใช้ใน Module 6
+ขั้นตอนถัดไป → เตรียม final showcase ใน Module 6

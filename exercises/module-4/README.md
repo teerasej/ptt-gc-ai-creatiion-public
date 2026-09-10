@@ -1,21 +1,31 @@
-# Module 4: Core Engineering Day - RAG and Actions
+# Module 4: Topics, Prompt, Tools, and Agent Flow
 
-หน้านี้เป็นสารบัญแบบฝึกหัดของ Module 4 โดยเน้นการออกแบบความรู้ (RAG) และการต่อยอดไปสู่การทำงานแบบ Action อย่างเป็นระบบ
+Module นี้ใช้ `Financial Report Assistant` เพื่อฝึก workflow ที่รับข้อมูล วิเคราะห์ workbook ให้ผู้ใช้ review และส่งอีเมลผ่าน `Agent Flow` อย่างควบคุมได้
 
-## Table of Contents
+> **License:** ต้องมีสิทธิ์เข้าใช้ `Copilot Studio`, สร้างและ publish `Agent Flow`, ใช้ connection ของ `Office 365 Outlook`, และเรียก `Send an email (V2)` ความพร้อมของ `Prompt` file input ต้องตรวจสอบก่อนเริ่มอบรม
 
-| Exercise | Title | Link |
-|---|---|---|
-| exercise-1-hybrid-topic-with-generative | สร้าง Dual-Domain Generative Topic ด้วย Create Generative Answer Node | [Open](./exercise-1-hybrid-topic-with-generative/README.md) |
-| exercise-2-add-outlook-mail-mcp-tool | เพิ่ม Outlook Mail MCP เป็น Tool ให้ Agent | [Open](./exercise-2-add-outlook-mail-mcp-tool/README.md) |
-| exercise-3-agent-flow-send-email-action | เพิ่ม Agent Flow สำหรับส่งอีเมลรายงาน | [Open](./exercise-3-agent-flow-send-email-action/README.md) |
+## Support Files
 
-## ลำดับการเรียน
+- [Financial workbook](../../files/module-4/PTT-Monthly-Financial-Report-May2026.xlsx)
+- [Financial terminology](../../files/module-4/financial-report-technical-terms-knowledge.docx)
+- [Distribution policy](../../files/module-4/financial-report-distribution-policy-knowledge.docx)
 
-1. เริ่มที่ [exercise-1-hybrid-topic-with-generative](./exercise-1-hybrid-topic-with-generative/README.md) เพื่อฝึกสร้าง topic งานความรู้แบบหลายโดเมนด้วย Prompt + Condition + Create generative answers
-2. ต่อด้วย [exercise-2-add-outlook-mail-mcp-tool](./exercise-2-add-outlook-mail-mcp-tool/README.md) เพื่อเพิ่มความสามารถให้ Agent ส่งอีเมลได้โดยตรงผ่าน Outlook Mail MCP และทดสอบการใช้งานแบบ native tool
-3. ปิดท้ายด้วย [exercise-3-agent-flow-send-email-action](./exercise-3-agent-flow-send-email-action/README.md) เพื่อยกระดับจาก native tool ไปสู่การทำ Action ผ่าน Agent Flow และ `Send an email (V2)` สำหรับ flow ธุรกิจที่ควบคุมได้มากขึ้น
+## Required Sequence
 
-## Next Step
+1. [Create the Financial Agent and intake Topic](./exercise-1-create-financial-agent-and-intake/README.md)
+2. [Analyze one workbook through a Prompt](./exercise-2-analyze-financial-workbook/README.md)
+3. [Review, revise, and confirm](./exercise-3-review-revise-confirm/README.md)
+4. [Build the required Agent Flow email](./exercise-4-required-agent-flow-email/README.md)
+5. [Test email paths](./exercise-5-test-email-paths/README.md)
 
-หลังจบแบบฝึกหัดทั้ง 3 ส่วนใน Module 4 ให้กลับไปที่สารบัญหลักและทำแบบฝึกหัดในโมดูลถัดไปตามแผนการสอน
+## Optional Route
+
+6. [Optional - Work IQ Mail MCP](./exercise-6-optional-work-iq-mail-mcp/README.md) เพื่อเปรียบเทียบ Preview MCP route กับ Agent Flow ไม่ใช่ prerequisite ของ Module 5
+
+> **⚠️ Note:** ระหว่างทดสอบให้เปิดใช้งานเส้นทางส่งอีเมลเพียงเส้นทางเดียว เพื่อป้องกันการส่งซ้ำ
+
+## Learner Output
+
+Financial Report Assistant ที่รับ request, วิเคราะห์ workbook, รองรับ revision และส่งอีเมลหนึ่งครั้งหลังผู้ใช้ยืนยัน
+
+ขั้นตอนถัดไป → [Optional Module 3.5 review](../module-3-5/README.md) หรือไปที่ [Module 5](../module-5/README.md)

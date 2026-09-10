@@ -1,33 +1,26 @@
-# Module 2: Copilot Studio Core Build
+# Module 2: Core Build - Vendor Comparison Assistant
 
-หน้านี้เป็นสารบัญของแบบฝึกหัดทั้งหมดใน Module 2 โดยเน้นการค่อยๆ เพิ่ม **Nodes** ให้ **Topic เดียวกัน** สำหรับกระบวนงานจริง เช่นงานสรุปรายงานการเงินรายเดือน
+Module นี้ใช้ Agent ชื่อ `PTT GC Vendor Comparison Assistant` เพื่อฝึก Core configuration, วิเคราะห์ใบเสนอราคาจำลอง, ตั้งค่า Suggested prompts และเพิ่ม reliability patterns โดย Agent มีหน้าที่ช่วยเปรียบเทียบ ไม่อนุมัติ vendor หรือการจัดซื้อแทนผู้มีอำนาจ
+
+> **License:** ต้องมีสิทธิ์เข้าใช้ `Copilot Studio` และต้องตรวจสอบว่า tenant เปิด `File uploads` และความสามารถวิเคราะห์ structured data ก่อนเริ่มอบรม ความสามารถ chat-based code interpreter เป็น `Preview`; ใช้ไฟล์ CSV เป็น classroom fallback
 
 ## Support Files
 
-- [Finance dataset workbook](../../files/module-2/PTT-Monthly-Financial-Report-May2026.xlsx)
-- [Knowledge file: technical terms](../../files/module-2/financial-report-technical-terms-knowledge.docx)
-- [Knowledge file: distribution policy](../../files/module-2/financial-report-distribution-policy-knowledge.docx)
-- [Mini test log template (Excel)](../../files/module-2/mini-test-log-template.xlsx)
-- [Dataset guide](../../files/module-2/README.md)
+- [Vendor quotations workbook](../../files/module-2/vendor-quotations-training.xlsx)
+- [Vendor quotations CSV fallback](../../files/module-2/vendor-quotations-training.csv)
+- [Mini-test log template](../../files/module-2/mini-test-log-template.xlsx)
+- [Optional procurement references](../../files/module-2/README.md)
 
-## Table of Contents
+## Required Sequence
 
-| Exercise | Title | Link |
-|---|---|---|
-| exercise-1-create-financial-agent | สร้าง Financial Report Assistant Agent | [Open](./exercise-1-create-financial-agent/README.md) |
-| exercise-2-topic-intake-flow | ออกแบบ Topic รับความต้องการรายงานการเงิน | [Open](./exercise-2-topic-intake-flow/README.md) |
-| exercise-3-excel-analysis-action | เชื่อมข้อมูล Excel และเรียก Action วิเคราะห์ | [Open](./exercise-3-excel-analysis-action/README.md) |
-| exercise-4-draft-and-revision-loop | สร้าง Draft และ Revision Loop | [Open](./exercise-4-draft-and-revision-loop/README.md) |
-| exercise-5-hybrid-topic-with-generative | ทำ Hybrid Conversation ด้วย Agent Orchestration + Knowledge | [Open](./exercise-5-hybrid-topic-with-generative/README.md) |
-| exercise-6-fallback-and-mini-test | ออกแบบ Fallback และ Mini Test Cycle | [Open](./exercise-6-fallback-and-mini-test/README.md) |
+1. [Create and scope the Agent](./exercise-1-create-vendor-comparison-agent/README.md)
+2. [Analyze vendor quotations](./exercise-2-analyze-vendor-quotations/README.md)
+3. [Configure Suggested prompts](./exercise-3-suggested-prompts/README.md)
+4. [Apply hardening and safe completion](./exercise-4-hardening-and-safe-completion/README.md)
+5. [Run a mini-test and improve](./exercise-5-mini-test-and-improve/README.md)
 
-## ลำดับการเรียน
+## Learner Output
 
-1. เริ่มที่ [exercise-1-create-financial-agent](./exercise-1-create-financial-agent/README.md) เพื่อสร้าง Agent ตั้งต้นและ instructions สำหรับ Financial Report Assistant
-2. ต่อด้วย [exercise-2-topic-intake-flow](./exercise-2-topic-intake-flow/README.md) เพื่อวางโครง Topic และตัวแปรหลักของ Topic เดียวกัน
-3. จากนั้นไปที่ [exercise-3-excel-analysis-action](./exercise-3-excel-analysis-action/README.md) เพื่อเพิ่ม node สำหรับเชื่อมข้อมูลและวิเคราะห์ต่อจาก Topic เดิม
-4. เรียน [exercise-4-draft-and-revision-loop](./exercise-4-draft-and-revision-loop/README.md) เพื่อเติม revision loop ลงใน Topic เดิม
-5. ต่อด้วย [exercise-5-hybrid-topic-with-generative](./exercise-5-hybrid-topic-with-generative/README.md) เพื่อเปิดใช้ agent orchestration + knowledge ให้คุยแบบ hybrid ได้โดยไม่ต้องสร้าง Topic ใหม่ในโมดูลนี้
-6. ปิดท้ายด้วย [exercise-6-fallback-and-mini-test](./exercise-6-fallback-and-mini-test/README.md) เพื่อ harden Agent หลังเปิด hybrid conversation ด้วย fallback, escalation, และ mini test cycle
+Agent ที่เปรียบเทียบราคา เงื่อนไขชำระเงิน ระยะเวลาส่งมอบ และข้อมูลที่ขาดได้ พร้อม Suggested prompts และหลักฐานการแก้ไขจาก mini-test
 
-เมื่อทดสอบ Agent v1 และบันทึก failure pattern จาก Module 2 แล้ว ให้ไปต่อที่ [Module 3: Hardening and Deployment Preparation](../module-3/README.md) เพื่อปรับความน่าเชื่อถือ ขอบเขตการตอบ และความพร้อมก่อน publish
+ขั้นตอนถัดไป → [Module 3: RAG with Operations Knowledge Assistant](../module-3/README.md)

@@ -1,36 +1,19 @@
-# Module 2 Files
+# Module 2 Support Files
 
-ไฟล์ในโฟลเดอร์นี้ใช้สำหรับแบบฝึกหัด Module 2 (Copilot Studio Core Build)
+ไฟล์หลักสำหรับ `PTT GC Vendor Comparison Assistant` คือ `vendor-quotations-training.xlsx` และ `vendor-quotations-training.csv` ซึ่งมีข้อมูลตรงกันเพื่อให้เปรียบเทียบผลได้
 
-## Dataset
+## Required Files
 
-- `PTT-Monthly-Financial-Report-May2026.xlsx`
-- `CPALL-Monthly-Financial-Report-June2026.xlsx`
+- `vendor-quotations-training.xlsx` ใช้เป็นเส้นทางหลักเมื่อ tenant รองรับการอัปโหลดและวิเคราะห์ `.xlsx`
+- `vendor-quotations-training.csv` ใช้เป็น classroom fallback ที่เชื่อถือได้
+- `mini-test-log-template.xlsx` ใช้บันทึก expected และ actual behavior
 
-## Knowledge Documents (Exercise 5)
+## Optional Procurement References
 
-- `financial-report-technical-terms-knowledge.docx`
-- `financial-report-distribution-policy-knowledge.docx`
+- `Procurement Policy Handbook.pdf`
+- `Purchase Approval Matrix.xlsx`
+- `Vendor Onboarding Checklist.docx`
 
-## Usage
+ไฟล์ optional ช่วยให้ผู้เรียนทดลองคำถามเรื่อง policy แต่ไม่จำเป็นต่อเส้นทางหลัก และไม่เปลี่ยนขอบเขตของ Agent: Agent ช่วยสรุปและเปรียบเทียบ แต่ไม่มีอำนาจอนุมัติ vendor หรือการจัดซื้อ
 
-- Use the May workbook for the first pass of the Excel analysis exercise.
-- Use the June workbook to compare month-over-month changes or to retry the same flow with different values.
-- Use `financial-report-technical-terms-knowledge.docx` for the technical terms branch in Exercise 5.
-- Use `financial-report-distribution-policy-knowledge.docx` for the policy branch in Exercise 5.
-
-## Workbook Structure
-
-1. `Summary`
-   - สรุปภาพรวมราย Business Unit เช่น Revenue, Cost, Variance, Status และ Key Risk
-2. `Revenue`
-   - รายได้ตาม Product Category พร้อมค่า target และ variance
-3. `Costs`
-   - ค่าใช้จ่ายตามหมวดต้นทุน พร้อม budget และ YoY change
-4. `Variance_Analysis`
-   - ตารางเจาะลึกค่า Actual vs Budget และ root cause สำหรับใช้ทำ narrative ในรายงาน
-
-## Notes
-
-- ตัวเลขทั้งหมดเป็นข้อมูลจำลองเพื่อการฝึกอบรม
-- ชื่อคอลัมน์ใช้ภาษาอังกฤษเพื่อให้ง่ายต่อการ map ตัวแปรใน Copilot Studio
+> **⚠️ Note:** ใช้ข้อมูลจำลองเท่านั้น ห้ามอัปโหลดใบเสนอราคาจริง รายชื่อ vendor จริง หรือข้อมูลส่วนบุคคล

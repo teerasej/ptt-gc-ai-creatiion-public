@@ -8,16 +8,16 @@
 
 ## Practice 1: ออกแบบ Suggested Prompts
 
-**Primary target:** เตรียม prompt เริ่มต้นที่ครอบคลุม comparison, missing data และ scope boundary
+**Primary target:** เตรียม prompt เริ่มต้นที่ครอบคลุม comparison จากหลายเอกสาร, missing data และ scope boundary
 
 1. เลือกข้อความสามรายการนี้ หรือปรับถ้อยคำโดยคงเจตนาเดิม:
 
    ```text
-   เปรียบเทียบใบเสนอราคาทั้งหมดในไฟล์นี้
+   เปรียบเทียบใบเสนอราคา PDF ทั้ง 3 ฉบับพร้อมระบุแหล่งข้อมูล
    ```
 
    ```text
-   ตรวจว่าข้อมูล vendor ใดยังขาดก่อนให้คำแนะนำ
+   ตรวจว่าเงื่อนไขของ Vendor รายใดยังขาดหรือต้องยืนยันก่อนให้คำแนะนำ
    ```
 
    ```text

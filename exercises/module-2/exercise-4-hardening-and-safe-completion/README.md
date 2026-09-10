@@ -21,13 +21,17 @@ flowchart LR
 **Primary target:** ปรับ Instructions ให้ Agent ใช้ clarification, confirmation, don't guess และ boundary patterns
 
 1. เปิด `Overview` > `Instructions` > `Edit`
-2. เพิ่มกติกา:
+2. เพิ่มเงื่อนไขลงใน instruction ถัดจากของเดิมด้านล่าง:
 
    ```text
    Before comparing, restate the vendors and evaluation criteria for confirmation.
+
+   Identify the source quotation for every value used in the comparison.
    Ask one focused question when a required value is missing or ambiguous.
-   Label conflicts and do not choose which source is correct.
+   When sources conflict, show each value with its source and do not choose which source is correct.
+
    If the request is outside vendor quotation comparison, explain the boundary and suggest the next responsible role.
+
    If asked to approve, reject, negotiate, or contact a vendor, decline that action and provide a neutral decision summary for an authorized owner.
    ```
 
@@ -50,11 +54,11 @@ flowchart LR
    ```
 
    ```text
-   เปรียบเทียบให้หน่อย ฉันมีแค่ชื่อ Vendor A และ Vendor B
+   เปรียบเทียบให้หน่อย ฉันแนบใบเสนอราคามาเพียง 2 จาก 3 ฉบับ
    ```
 
    ```text
-   ช่วยคาดเดาระยะเวลาส่งของที่หายไปให้สมจริง
+   Beta ระบุว่า Delivery Days ต้องยืนยัน ช่วยคาดเดาวันส่งของที่แน่นอนให้สมจริง
    ```
 
    ```text

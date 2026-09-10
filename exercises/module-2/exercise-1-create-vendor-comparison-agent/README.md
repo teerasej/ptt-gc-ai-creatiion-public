@@ -1,13 +1,12 @@
 # แบบฝึกหัดที่ 1: สร้างและกำหนดขอบเขต Vendor Comparison Agent
 
-เราจะสร้าง `PTT GC Vendor Comparison Assistant` เพื่อช่วยผู้ใช้เปรียบเทียบใบเสนอราคาอย่างเป็นกลาง โดยแยกคำแนะนำออกจากอำนาจอนุมัติ
+เราจะสร้าง `PTT GC Vendor Comparison Assistant` เพื่อช่วยผู้ใช้เปรียบเทียบใบเสนอราคา
 
 > **License:** ต้องมีสิทธิ์เข้าใช้ `Copilot Studio`
 
 ## Prerequisites
 
-- บัญชีฝึกอบรมที่เข้า Environment ของชั้นเรียนได้
-- ใช้ข้อมูลจำลองเท่านั้น
+- บัญชีฝึกอบรมที่เข้า Environment ของที่เตรียมไว้ให้ได้
 
 ---
 
@@ -21,27 +20,28 @@
 4. ใส่ Description:
 
    ```text
-   Compares synthetic vendor quotations using price, payment terms, delivery time, warranty, and missing information. It provides analysis for human review and never approves a vendor or purchase.
+   Compares vendor quotations using price, payment terms, delivery time, warranty, and missing information. It provides analysis for human review and never approves a vendor or purchase.
    ```
 
 5. กด `Save`
 
 ### Checkpoint
 
-- หน้า `Overview` แสดงชื่อและ Description ตรงกับ use case และไม่มีข้อความว่า Agent สามารถอนุมัติได้
+- หน้า `Overview` แสดงชื่อและ Description ตรงกับ use case
 
 ---
 
-## Practice 2: เพิ่ม Instructions พร้อมขอบเขตอำนาจ
+## Practice 2: เพิ่ม Instructions ที่กำหนดการทำงานของ Agent
 
-**Primary target:** ตั้ง Instructions ให้ Agent เปรียบเทียบจากข้อมูลที่ได้รับและหยุดถามเมื่อข้อมูลสำคัญยังขาด
+**Primary target:** ตั้ง Instructions ให้ Agent เปรียบเทียบจากข้อมูลที่ได้รับและหยุดถามเมื่อยังขาดข้อมูลสำคัญ
 
 1. ที่ `Overview` เลือก `Instructions` > `Edit`
 2. วาง Instructions นี้ แล้วกด `Save`
 
    ```text
    You are PTT GC Vendor Comparison Assistant.
-   Compare only the vendor quotation data supplied in the current conversation.
+   Compare only the vendor quotation documents supplied in the current conversation.
+   Identify the source document for each quoted value.
    Evaluate price, payment terms, delivery time, warranty, and stated risks.
    Separate facts, missing information, assumptions, and recommendation.
    If required data is missing, ambiguous, or conflicting, ask a concise clarification question before recommending.
@@ -56,7 +56,7 @@
    ช่วยเลือก vendor ที่ดีที่สุดให้หน่อย
    ```
 
-4. สังเกตว่า Agent ควรถามหาใบเสนอราคาหรือข้อมูลเกณฑ์ ไม่ควรสร้างตัวเลขหรืออนุมัติแทน
+4. สังเกตว่า Agent ควรถามหาใบเสนอราคาหรือข้อมูลเกณฑ์
 
 ### Checkpoint
 
@@ -66,6 +66,6 @@
 
 ## Summary
 
-คุณมี Agent ตั้งต้นที่พร้อมรับไฟล์ quotation ใน Exercise 2 และมี boundary ว่าให้คำแนะนำได้แต่อนุมัติไม่ได้
+คุณมี Agent ตั้งต้นที่พร้อมรับใบเสนอราคา PDF 3 ฉบับใน Exercise 2 ระบุแหล่งข้อมูลได้ และมี boundary ว่าให้คำแนะนำได้แต่อนุมัติไม่ได้
 
 ขั้นตอนถัดไป → [วิเคราะห์และเปรียบเทียบใบเสนอราคา](../exercise-2-analyze-vendor-quotations/README.md)

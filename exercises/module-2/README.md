@@ -1,13 +1,14 @@
 # Module 2: Core Build - Vendor Comparison Assistant
 
-Module นี้ใช้ Agent ชื่อ `PTT GC Vendor Comparison Assistant` เพื่อฝึก Core configuration, วิเคราะห์ใบเสนอราคาจำลอง, ตั้งค่า Suggested prompts และเพิ่ม reliability patterns โดย Agent มีหน้าที่ช่วยเปรียบเทียบ ไม่อนุมัติ vendor หรือการจัดซื้อแทนผู้มีอำนาจ
+Module นี้ใช้ Agent ชื่อ `PTT GC Vendor Comparison Assistant` เพื่อฝึก Core configuration, เปรียบเทียบใบเสนอราคา PDF จาก Vendor 3 ราย, ตั้งค่า Suggested prompts และเพิ่ม reliability patterns โดย Agent มีหน้าที่ช่วยเปรียบเทียบ ไม่อนุมัติ Vendor หรือการจัดซื้อแทนผู้มีอำนาจ
 
-> **License:** ต้องมีสิทธิ์เข้าใช้ `Copilot Studio` และต้องตรวจสอบว่า tenant เปิด `File uploads` และความสามารถวิเคราะห์ structured data ก่อนเริ่มอบรม ความสามารถ chat-based code interpreter เป็น `Preview`; ใช้ไฟล์ CSV เป็น classroom fallback
+> **License:** ต้องมีสิทธิ์เข้าใช้ `Copilot Studio` และต้องตรวจสอบว่า Environment เปิด `File uploads` ก่อนเริ่มอบรม
 
 ## Support Files
 
-- [Vendor quotations workbook](../../files/module-2/vendor-quotations-training.xlsx)
-- [Vendor quotations CSV fallback](../../files/module-2/vendor-quotations-training.csv)
+- [Alpha Industrial quotation](../../files/module-2/vendor-quotation-alpha-industrial.pdf)
+- [Beta Engineering quotation](../../files/module-2/vendor-quotation-beta-engineering.pdf)
+- [Gamma Supply quotation](../../files/module-2/vendor-quotation-gamma-supply.pdf)
 - [Mini-test log template](../../files/module-2/mini-test-log-template.xlsx)
 - [Optional procurement references](../../files/module-2/README.md)
 
@@ -21,6 +22,6 @@ Module นี้ใช้ Agent ชื่อ `PTT GC Vendor Comparison Assistant
 
 ## Learner Output
 
-Agent ที่เปรียบเทียบราคา เงื่อนไขชำระเงิน ระยะเวลาส่งมอบ และข้อมูลที่ขาดได้ พร้อม Suggested prompts และหลักฐานการแก้ไขจาก mini-test
+Agent ที่เปรียบเทียบราคา เงื่อนไขชำระเงิน ระยะเวลาส่งมอบ การรับประกัน และข้อมูลที่ต้องยืนยันจาก PDF หลายฉบับได้ พร้อม Suggested prompts และหลักฐานการแก้ไขจาก mini-test
 
 ขั้นตอนถัดไป → [Module 3: RAG with Operations Knowledge Assistant](../module-3/README.md)

@@ -13,19 +13,19 @@
 1. เปิด published Agent และใช้ run sheet:
 
    ```text
-   1. อัปโหลด vendor-quotations-training.xlsx และขอ comparison table
-   2. ถ้า published channel รับ XLSX ไม่ได้ ให้อัปโหลด vendor-quotations-training.csv
-   3. ขอให้ Agent บอกข้อมูลที่ขาดหรือขัดแย้งก่อนแนะนำ
+   1. อัปโหลด vendor-quotation-alpha-industrial.pdf, vendor-quotation-beta-engineering.pdf และ vendor-quotation-gamma-supply.pdf พร้อมกัน
+   2. ขอ comparison table ที่ระบุชื่อไฟล์ต้นทางของแต่ละ Vendor
+   3. ขอให้ Agent บอกข้อมูลที่ขาด ต้องยืนยัน หรือขัดแย้งก่อนแนะนำ
    4. ให้ข้อมูลใหม่ว่า delivery requirement คือไม่เกิน 14 วัน
    5. ขอ recommendation ฉบับแก้ไขพร้อม trade-off และ approval boundary
    ```
 
-2. หาก published file upload ใช้งานไม่ได้ ให้ใช้ instructor-prepared published conversation หรือ paste แถวข้อมูลจาก CSV ตามที่ผู้สอนกำหนด
+2. หาก published channel ไม่รองรับการอัปโหลด PDF หลายไฟล์ ให้ใช้ instructor-prepared published conversation หรือข้อความจากใบเสนอราคาที่ผู้สอนเตรียมไว้
 3. จด expected และ actual behavior ของแต่ละช่วง
 
 ### Checkpoint
 
-- Demo แสดง upload/fallback, comparison, clarification และ revised recommendation ครบ โดย Agent ไม่อนุมัติ vendor
+- Demo แสดงการอ่าน PDF 3 ฉบับ, source-attributed comparison, clarification และ revised recommendation ครบ โดย Agent ไม่อนุมัติ Vendor
 
 ---
 
@@ -38,7 +38,7 @@
 
    ```text
    Opening:
-   Upload route and fallback:
+   Three-PDF upload route and fallback:
    Comparison prompt:
    Missing-information prompt:
    New information for revision:

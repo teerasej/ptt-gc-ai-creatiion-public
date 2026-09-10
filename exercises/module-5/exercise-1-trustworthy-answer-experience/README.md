@@ -22,7 +22,7 @@
    End recommendations with: "Final vendor selection remains with the authorized procurement owner."
    ```
 
-3. ทดสอบด้วยไฟล์ CSV จาก Module 2
+3. ทดสอบด้วยใบเสนอราคา PDF ทั้ง 3 ฉบับจาก Module 2
 4. ถ้าคำตอบยาวขึ้นแต่ไม่ชัดขึ้น ให้ย้อนกลับเฉพาะการแก้ไขนั้น
 
 ### Checkpoint

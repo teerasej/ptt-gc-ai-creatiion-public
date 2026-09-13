@@ -4,6 +4,7 @@
 
 ## Module 2
 
+- [Download all Module 2 support files (.zip)](https://raw.githubusercontent.com/teerasej/ptt-gc-ai-creatiion-public/main/files/module-2/module-2-support-files.zip)
 - [Alpha Industrial quotation](./module-2/vendor-quotation-alpha-industrial.pdf)
 - [Beta Engineering quotation](./module-2/vendor-quotation-beta-engineering.pdf)
 - [Gamma Supply quotation](./module-2/vendor-quotation-gamma-supply.pdf)

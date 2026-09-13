@@ -6,9 +6,9 @@
 
 1. [Module 1 - Foundations: AI and Agents](./exercises/module-1/README.md)
 2. [Module 2 - Core Build: Vendor Comparison Assistant](./exercises/module-2/README.md)
-3. [Module 3 - RAG: Operations Knowledge Assistant]()
-4. [Module 4 - Topics, Prompt, Tools, and Agent Flow: Financial Report Assistant]()
-5. [Module 5 - Publish, Demonstrate, Monitor, and Pilot Readiness]()
+3. Module 3 - RAG: Operations Knowledge Assistant
+4. Module 4 - Topics, Prompt, Tools, and Agent Flow: Financial Report Assistant
+5. Module 5 - Publish, Demonstrate, Monitor, and Pilot Readiness
 6. Module 6 - Final Project Presentation Day
 
 

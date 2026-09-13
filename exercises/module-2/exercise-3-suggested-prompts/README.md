@@ -8,16 +8,16 @@
 
 ## Practice 1: ออกแบบ Suggested Prompts
 
-**Primary target:** เตรียม prompt เริ่มต้นที่ครอบคลุม comparison จากหลายเอกสาร, missing data และ scope boundary
+**Primary target:** เตรียม prompt เริ่มต้นสำหรับการอ่านข้อมูล เปรียบเทียบเงื่อนไข และสรุป trade-off
 
 1. เลือกข้อความสามรายการนี้ หรือปรับถ้อยคำโดยคงเจตนาเดิม:
 
    ```text
-   เปรียบเทียบใบเสนอราคา PDF ทั้ง 3 ฉบับพร้อมระบุแหล่งข้อมูล
+   เปรียบเทียบใบเสนอราคา PDF ทั้ง 3 ฉบับ
    ```
 
    ```text
-   ตรวจว่าเงื่อนไขของ Vendor รายใดยังขาดหรือต้องยืนยันก่อนให้คำแนะนำ
+   แสดงเงื่อนไขของ Vendor แต่ละรายที่มีอยู่ในใบเสนอราคา
    ```
 
    ```text
@@ -28,7 +28,7 @@
 
 ### Checkpoint
 
-- แต่ละ prompt เริ่มต้นงานคนละมุมและไม่มี prompt ใดสั่งให้ Agent อนุมัติ vendor
+- แต่ละ prompt เริ่มต้นงานคนละมุม ได้แก่ comparison, quotation details และ trade-off
 
 ---
 
@@ -37,7 +37,7 @@
 **Primary target:** บันทึก Suggested prompts ให้พร้อมแสดงใน published experience
 
 1. เปิด Agent แล้วไปที่ `Overview`
-2. หา `Suggested prompts` แล้วเลือกเพิ่ม prompt ใหม่
+2. เลื่อนลงมา หา `Suggested prompts` แล้วเลือกเพิ่ม prompt ใหม่
 3. ใส่ Title และ Message สำหรับทั้งสามรายการ
 4. กด `Save`
 5. ตรวจรายการบน `Overview`

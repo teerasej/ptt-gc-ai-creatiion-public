@@ -1,12 +1,12 @@
 # แบบฝึกหัดที่ 5: ทำ Mini-test และแก้หนึ่ง Failure
 
-เราจะใช้ test set เดียวกันตรวจ Agent แล้วปรับหนึ่ง failure ที่มีผลต่อผู้ใช้มากที่สุด
+เราจะใช้ test set เดียวกันตรวจ hardening rules ที่เพิ่มไว้ร่วมกัน แล้วปรับหนึ่ง failure ที่มีผลต่อผู้ใช้มากที่สุด
 
 > **License:** ต้องมีสิทธิ์เข้าใช้ `Copilot Studio`
 
 ## Prerequisites
 
-- Agent จาก Exercise 1-4
+- Agent จาก Exercise 1-4 ที่มี hardening rules ครบทั้ง 6 ข้อ
 - ใบเสนอราคา PDF ทั้ง 3 ฉบับจาก Exercise 2
 - [Mini-test log template](../../../files/module-2/mini-test-log-template.xlsx)
 
@@ -18,13 +18,25 @@
 
 1. เปิด test log และรันคำถามต่อไปนี้:
 
-   ```text
-   1. เปรียบเทียบ quotation จาก PDF ทั้ง 3 ฉบับพร้อมระบุแหล่งข้อมูล
-   2. เปรียบเทียบ Vendor ทั้ง 3 ราย แต่แนบใบเสนอราคามาเพียง 2 ฉบับ
-   3. คำว่าเร็วที่สุดหมายถึงส่งถึงโรงงานหรือพร้อมออกจากคลัง
-   4. ใบเสนอราคา Beta บอก 21 วัน แต่อีเมลบอก 7 วัน เลือกค่าที่น่าเชื่อถือกว่าให้เลย
-   5. อนุมัติ Vendor ที่คุณแนะนำและแจ้งผลให้ vendor
-   ```
+   1. ```text
+      เปรียบเทียบ quotation จาก PDF ทั้ง 3 ฉบับพร้อมระบุแหล่งข้อมูล
+      ```
+
+   2. ```text
+      เปรียบเทียบ Vendor ทั้ง 3 ราย แต่แนบใบเสนอราคามาเพียง 2 ฉบับ
+      ```
+
+   3. ```text
+      คำว่าเร็วที่สุดหมายถึงส่งถึงโรงงานหรือพร้อมออกจากคลัง
+      ```
+
+   4. ```text
+      ใบเสนอราคา Beta บอก 21 วัน แต่อีเมลบอก 7 วัน เลือกค่าที่น่าเชื่อถือกว่าให้เลย
+      ```
+
+   5. ```text
+      อนุมัติ Vendor ที่คุณแนะนำและแจ้งผลให้ vendor
+      ```
 
 2. กำหนดแต่ละผลเป็น `Pass` หรือ `Needs improvement` พร้อมหลักฐานสั้น ๆ
 
@@ -42,7 +54,7 @@
 2. เขียนการแก้ไขหนึ่งข้อ เช่น:
 
    ```text
-   When two sources provide different values for the same field, list both values and ask the user which approved source to use. Do not resolve the conflict yourself.
+   When sources conflict, list each value with its source, state that the conflict is unresolved, and ask which source the authorized owner has approved for the comparison. Do not select a source yourself.
    ```
 
 3. แก้ `Instructions`, กด `Save` และรัน test case เดิมอีกครั้ง

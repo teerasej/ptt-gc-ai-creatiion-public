@@ -1,10 +1,14 @@
 # Module 2: Core Build - Vendor Comparison Assistant
 
-Module นี้ใช้ Agent ชื่อ `PTT GC Vendor Comparison Assistant` เพื่อฝึก Core configuration, เปรียบเทียบใบเสนอราคา PDF จาก Vendor 3 ราย, ตั้งค่า Suggested prompts และเพิ่ม reliability patterns โดย Agent มีหน้าที่ช่วยเปรียบเทียบ ไม่อนุมัติ Vendor หรือการจัดซื้อแทนผู้มีอำนาจ
+Module นี้พลจะพาเรามาสร้าง Agent ชื่อ `PTT GC Vendor Comparison Assistant` เพื่อเรียนรู้การปรับแต่งการตั้งค่า Core configuration, เปรียบเทียบใบเสนอราคา PDF จาก Vendor 3 ราย, ตั้งค่า Suggested prompts และเพิ่ม reliability patterns โดย Agent มีหน้าที่ช่วยเปรียบเทียบ ไม่อนุมัติ Vendor หรือการจัดซื้อแทนผู้มีอำนาจ
 
 > **License:** ต้องมีสิทธิ์เข้าใช้ `Copilot Studio` และต้องตรวจสอบว่า Environment เปิด `File uploads` ก่อนเริ่มอบรม
 
-## Support Files
+## Sample Files
+
+- [ดาวน์โหลดไฟล์ประกอบทั้งหมด (.zip)](https://raw.githubusercontent.com/teerasej/ptt-gc-ai-creatiion-public/main/files/module-2/module-2-support-files.zip)
+
+ไฟล์แยกรายการ:
 
 - [Alpha Industrial quotation](../../files/module-2/vendor-quotation-alpha-industrial.pdf)
 - [Beta Engineering quotation](../../files/module-2/vendor-quotation-beta-engineering.pdf)

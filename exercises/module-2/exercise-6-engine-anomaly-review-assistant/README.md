@@ -2,25 +2,34 @@
 
 ในแบบฝึกหัดทางเลือกนี้ พลจะพาเราสร้าง `PTT GC Engine Anomaly Review Assistant` เพื่อช่วยอ่านข้อมูลเครื่องจักรจากไฟล์ CSV ตรวจหาเหตุการณ์ผิดปกติจากค่าที่สังเกตได้ และสรุปผลกลับมาใน Chat
 
-> **License:** ต้องมีสิทธิ์เข้าใช้ `Copilot Studio` และใช้ความสามารถ `Code interpreter` ซึ่งเป็น Preview และ premium capability ต้องตรวจสอบความพร้อมของ Environment ก่อนเริ่ม
+> **License:** ต้องมีสิทธิ์เข้าใช้ `Copilot Studio` และเปิด `File uploads` ได้ เส้นทางหลักด้วย CSV ไม่ต้องเปิด `Code interpreter`
 
 ## Prerequisites
 
 - บัญชีที่สร้าง Agent ใน `Copilot Studio` ได้
 - [Engine anomaly incident data (.csv)](../../../files/module-2/engine-anomaly-incident-data.csv) — ใช้เป็นเส้นทางหลักของแบบฝึกหัด
-- [Engine anomaly incident data (.xlsx)](../../../files/module-2/engine-anomaly-incident-data.xlsx) — ใช้ทดลองเพิ่มเติมเมื่อ Environment รองรับเท่านั้น
+- [Engine anomaly incident data (.xlsx)](../../../files/module-2/engine-anomaly-incident-data.xlsx) — ใช้ทดลองเพิ่มเติมเมื่อ Environment รองรับ XLSX โดยไม่เปิด `Code interpreter` เท่านั้น
+
+## File Limit Check
+
+- ไฟล์ CSV มี 16 records, 11 columns และข้อความทั้งหมด `1,253 characters`
+- Microsoft ระบุว่าเมื่อไม่เปิด `Code interpreter` Agent อ่านข้อความได้สูงสุด `30,000 characters` ต่อไฟล์ และรวมไม่เกิน `30,000 characters` เมื่ออัปโหลดหลายไฟล์
+- CSV จึงเหลือพื้นที่จาก limit อีก `28,747 characters` และใช้เป็นเส้นทางหลัก
+- ตารางใน XLSX มีข้อความประมาณ `1,252 characters` จึงไม่ติด character limit แต่ Microsoft ระบุว่า XLSX ใน standard Copilot Studio path โดยไม่เปิด `Code interpreter` ยังเป็น experimental availability จึงรับประกันได้เฉพาะความถูกต้องของข้อมูล ไม่สามารถรับประกันว่า Environment ทุกแห่งจะรับไฟล์ได้
+
+> **💡 Tip:** ให้แนบครั้งละ 1 ไฟล์และเริ่ม `Start new test session` ก่อนเปลี่ยนไฟล์ เพื่อไม่ให้เนื้อหาจากไฟล์ก่อนหน้ายังคงนับรวมใน conversation
 
 > **⚠️ Note:** ข้อมูลทั้งหมดเป็นข้อมูลจำลองสำหรับการเรียน ห้ามใช้ผลลัพธ์จาก Agent เป็นการวินิจฉัย root cause คำสั่งควบคุมเครื่องจักร หรือคำสั่งซ่อมบำรุง
 
 ```mermaid
 flowchart LR
-    A[Build baseline Agent] --> B[Complete CSV analysis]
-    B --> C[Record evidence-risk response]
-    C --> D[Add Evidence-first rule]
-    D --> E[Record vague-request response]
+    A[Build baseline Agent] --> B[File uploads On]
+    B --> C[Code interpreter Off]
+    C --> D[Complete CSV analysis]
+    D --> E[Add Evidence-first rule]
     E --> F[Add Focused-clarification rule]
     F --> G[Complete reliable summary]
-    G --> H[Optional: repeat with XLSX]
+    G --> H[Optional: test XLSX availability]
 ```
 
 ---
@@ -50,13 +59,14 @@ flowchart LR
 4. เลือก `Save`
 5. ไปที่ `Settings` > `Generative AI`
 6. ใต้ `File processing capabilities` เปิด `File uploads` เป็น `On`
-7. เปิด `Code interpreter` เป็น `On` แล้วเลือก `Save`
-8. ออกจากหน้า `Settings` แล้วกลับเข้ามาตรวจว่า toggle ทั้งสองรายการยังเป็น `On`
+7. ในส่วน `Knowledge` เปิด `Allow ungrounded responses` เพราะ Agent นี้ไม่มี Knowledge source และต้องตอบจากไฟล์ที่ผู้ใช้แนบ
+8. คง `Code interpreter` เป็น `Off` แล้วเลือก `Save`
+9. ออกจากหน้า `Settings` แล้วกลับเข้ามาตรวจว่า `File uploads` และ `Allow ungrounded responses` ยังเป็น `On` ส่วน `Code interpreter` ยังเป็น `Off`
 
-   > **⚠️ Note:** ถ้าไม่มี `Code interpreter`, toggle ถูก policy ปิด หรือบันทึกไม่ได้ ให้หยุดแบบฝึกหัดทางเลือกนี้และไป Module 3 ได้เลย การใช้ XLSX ไม่ใช่วิธีแก้แทนเมื่อ capability นี้ไม่พร้อม
+   > **⚠️ Note:** ถ้าเปิด `File uploads` ไม่ได้ หรือไม่มี `Allow ungrounded responses` และ Agent อ่านไฟล์ไม่ได้ ให้แจ้งผู้สอนและไป Module 3 ได้เลย แบบฝึกหัดนี้เป็น Optional
 
-9. เปิด `Test your agent` แล้วเลือก `Start new test session`
-10. แนบไฟล์ `engine-anomaly-incident-data.csv` กับ Prompt ต่อไปนี้ก่อนส่ง:
+10. เปิด `Test your agent` แล้วเลือก `Start new test session`
+11. แนบไฟล์ `engine-anomaly-incident-data.csv` กับ Prompt ต่อไปนี้ก่อนส่ง:
 
     ```text
     วิเคราะห์ ENG-201 ในช่วง incident 2026-09-14 14:08 ถึง 14:12 โดยเทียบกับ baseline 14:00 ถึง 14:07
@@ -64,17 +74,17 @@ flowchart LR
     สรุปผลตามหัวข้อที่กำหนดไว้ใน Instructions
     ```
 
-11. ตรวจผลลัพธ์:
+12. ตรวจผลลัพธ์:
     - `VibrationMmS` เพิ่มจาก `2.4` เวลา `14:07` เป็น `8.7` เวลา `14:11`
     - `CoolantTempC` เพิ่มจาก `88` เวลา `14:07` เป็น `104` เวลา `14:12`
     - `OilPressureKPa` ลดจาก `391` เวลา `14:07` เป็น `292` เวลา `14:12`
     - `OilPressureKPa` เวลา `14:11` ไม่มีค่า และ `SensorStatus` เป็น `Missing`
     - `LoadPct` และ `RPM` เปลี่ยนเพียงเล็กน้อยระหว่าง baseline กับช่วง incident
-12. ตรวจว่าคำตอบเรียงหัวข้อครบทั้ง 6 หัวข้อตาม Instructions
+13. ตรวจว่าคำตอบเรียงหัวข้อครบทั้ง 6 หัวข้อตาม Instructions
 
 ### Checkpoint
 
-- Agent อ่าน CSV เปรียบเทียบ baseline กับ incident window และสร้าง Incident Summary ครบ 6 หัวข้อ
+- ขณะ `Code interpreter` เป็น `Off` Agent อ่าน CSV เปรียบเทียบ baseline กับ incident window และสร้าง Incident Summary ครบ 6 หัวข้อ
 
 ---
 
@@ -82,7 +92,7 @@ flowchart LR
 
 **Primary target:** เพิ่ม Evidence-first rule แล้วพิสูจน์ด้วย Before/After ว่า Agent ระบุข้อมูลที่หายไปและไม่สร้างข้อสรุปเกินหลักฐาน
 
-1. เลือก `Start new test session`
+1. ตรวจว่า `Code interpreter` ยังเป็น `Off` แล้วเลือก `Start new test session`
 2. แนบไฟล์ `engine-anomaly-incident-data.csv` แล้วส่ง Prompt นี้ก่อนเพิ่ม hardening:
 
    ```text
@@ -124,7 +134,7 @@ flowchart LR
 
 **Primary target:** เพิ่ม Focused-clarification rule แล้วพิสูจน์ด้วย Before/After ว่า Agent ขอ incident context ด้วยคำถามที่จำเป็นเพียงหนึ่งข้อก่อนวิเคราะห์
 
-1. คง Evidence-first rule จาก Practice 2 ไว้ แล้วเลือก `Start new test session`
+1. คง Evidence-first rule จาก Practice 2 และ `Code interpreter` เป็น `Off` แล้วเลือก `Start new test session`
 2. แนบไฟล์ `engine-anomaly-incident-data.csv` แล้วส่ง Prompt นี้ก่อนเพิ่ม clarification rule:
 
    ```text
@@ -165,18 +175,21 @@ flowchart LR
 
 ## Optional Route: ทดลองไฟล์ XLSX เมื่อ Environment รองรับ
 
-เส้นทางหลักจบสมบูรณ์แล้วด้วยไฟล์ CSV หากต้องการเปรียบเทียบ format ให้เริ่ม test session ใหม่ แนบ `engine-anomaly-incident-data.xlsx` และใช้ Prompt เดียวกับ Practice 1
+เส้นทางหลักจบสมบูรณ์แล้วด้วยไฟล์ CSV หากต้องการตรวจ availability ของ XLSX โดยไม่ใช้ `Code interpreter` ให้คง `Code interpreter` เป็น `Off` เริ่ม test session ใหม่ แนบ `engine-anomaly-incident-data.xlsx` และใช้ Prompt เดียวกับ Practice 1
 
-> **⚠️ Note:** XLSX เป็นทางเลือกเท่านั้น ถ้าอัปโหลดไม่ได้ วิเคราะห์ไม่ครบ หรือผลลัพธ์ไม่สม่ำเสมอ ให้กลับมาใช้ CSV โดยไม่ถือว่าแบบฝึกหัดล้มเหลว และไม่ต้องใช้ XLSX ใน Checkpoint ใด
+ตรวจว่าค่าหลักที่ Agent อ่านได้ตรงกับ CSV ได้แก่ `VibrationMmS = 8.7` เวลา `14:11`, `CoolantTempC = 104` เวลา `14:12`, `OilPressureKPa = 292` เวลา `14:12` และค่า `OilPressureKPa` เวลา `14:11` เป็นค่าว่าง
+
+> **⚠️ Note:** XLSX เป็นทางเลือกเท่านั้น Microsoft ระบุว่า XLSX โดยไม่เปิด `Code interpreter` ยังขึ้นอยู่กับ experimental availability ของ Environment ขนาดไฟล์ที่ต่ำกว่า character limit ไม่ได้ทำให้ capability นี้เปิดอัตโนมัติ ถ้าอัปโหลดไม่ได้ วิเคราะห์ไม่ครบ หรือผลลัพธ์ไม่สม่ำเสมอ ให้กลับมาใช้ CSV โดยไม่ถือว่าแบบฝึกหัดล้มเหลว และไม่ต้องใช้ XLSX ใน Checkpoint ใด
 
 ---
 
 ## Summary
 
-คุณได้สร้าง Agent ที่ทำ main CSV workflow ก่อน แล้วเพิ่ม reliability patterns ทีละข้ออีก 2 แบบ คือยึดหลักฐานโดยไม่เดา และถามหนึ่งคำถามเมื่อ context สำคัญไม่ครบ แบบฝึกหัดนี้เป็นทางเลือกและไม่ใช่ prerequisite ของ Module ถัดไป
+คุณได้สร้าง Agent ที่ทำ main CSV workflow โดยไม่เปิด `Code interpreter` แล้วเพิ่ม reliability patterns ทีละข้ออีก 2 แบบ คือยึดหลักฐานโดยไม่เดา และถามหนึ่งคำถามเมื่อ context สำคัญไม่ครบ XLSX เป็นเพียง availability test และไม่ใช่ prerequisite ของ Module ถัดไป
 
 ## Microsoft Learn Reference
 
+- [Allow file input from users](https://learn.microsoft.com/en-us/microsoft-copilot-studio/image-input-analysis)
 - [Use code interpreter to analyze structured data (preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-code-interpreter-structured-data#use-code-interpreter-for-analysis-of-a-user-uploaded-structured-data-file)
 
 ขั้นตอนถัดไป → [Module 3: RAG with Operations Knowledge Assistant](../../module-3/README.md)

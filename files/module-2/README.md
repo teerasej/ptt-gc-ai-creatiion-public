@@ -26,4 +26,11 @@
 
 ให้ทำทุกขั้นตอนและ Checkpoint ด้วย CSV ก่อนเสมอ หาก XLSX ใช้งานไม่ได้ให้ทำต่อด้วย CSV โดยไม่ถือว่าเป็นปัญหาของเส้นทางหลัก
 
+### File uploads without Code interpreter
+
+- CSV มี `1,253 characters` และใช้เป็นเส้นทางหลักโดยคง `Code interpreter` เป็น `Off`
+- Character limit เมื่อไม่เปิด `Code interpreter` คือ `30,000 characters` ต่อไฟล์และรวมต่อการอัปโหลดหลายไฟล์
+- ตารางใน XLSX มีข้อความประมาณ `1,252 characters` แต่การอ่าน XLSX โดยไม่เปิด `Code interpreter` ยังขึ้นอยู่กับ experimental availability ของ Environment
+- ให้แนบครั้งละหนึ่งไฟล์ใน test session ใหม่ หาก XLSX ใช้ไม่ได้ให้กลับไปใช้ CSV
+
 > **⚠️ Note:** ใช้ข้อมูลจำลองเท่านั้น ห้ามอัปโหลดใบเสนอราคาจริง รายชื่อ vendor จริง หรือข้อมูลส่วนบุคคล

@@ -1,6 +1,6 @@
 # แบบฝึกหัดที่ 6 (Optional): สร้าง Engine Anomaly Review Assistant
 
-ในแบบฝึกหัดทางเลือกนี้ เราจะสร้าง `PTT GC Engine Anomaly Review Assistant` เพื่อช่วยอ่านข้อมูลเครื่องยนต์จำลองจากไฟล์ CSV ตรวจหาเหตุการณ์ผิดปกติจากค่าที่สังเกตได้ และสรุปผลกลับมาใน Chat โดยไม่เดา root cause หรือสั่งการซ่อมบำรุง
+ในแบบฝึกหัดทางเลือกนี้ พลจะพาเราสร้าง `PTT GC Engine Anomaly Review Assistant` เพื่อช่วยอ่านข้อมูลเครื่องจักรจากไฟล์ CSV ตรวจหาเหตุการณ์ผิดปกติจากค่าที่สังเกตได้ และสรุปผลกลับมาใน Chat
 
 > **License:** ต้องมีสิทธิ์เข้าใช้ `Copilot Studio` และใช้ความสามารถ `Code interpreter` ซึ่งเป็น Preview และ premium capability ต้องตรวจสอบความพร้อมของ Environment ก่อนเริ่ม
 
@@ -64,7 +64,7 @@ flowchart LR
     สรุปผลตามหัวข้อที่กำหนดไว้ใน Instructions
     ```
 
-11. ตรวจผลลัพธ์กับหลักฐานสำคัญ:
+11. ตรวจผลลัพธ์:
     - `VibrationMmS` เพิ่มจาก `2.4` เวลา `14:07` เป็น `8.7` เวลา `14:11`
     - `CoolantTempC` เพิ่มจาก `88` เวลา `14:07` เป็น `104` เวลา `14:12`
     - `OilPressureKPa` ลดจาก `391` เวลา `14:07` เป็น `292` เวลา `14:12`
@@ -160,27 +160,6 @@ flowchart LR
 ### Checkpoint
 
 - Instructions มี Focused-clarification rule เพิ่มเพียงหนึ่งข้อ และผล After ถามหนึ่งคำถามก่อนสร้าง Incident Summary ครบ 6 หัวข้อ
-
----
-
-## Cumulative Checkpoint
-
-ตรวจว่า Agent ยังคงมี baseline role และ response format จาก Practice 1 พร้อม hardening rules เพียง 2 แบบตามลำดับ:
-
-```text
-Evidence-first rule:
-- Use only values found in the attached file.
-- For every finding, identify the timestamp, column, and observed value.
-- State clearly when a reading is missing or uncertain. Do not estimate the missing value.
-- Separate observed changes from possible causes. Do not claim a root cause, invent an engineering threshold, control equipment, or provide maintenance instructions.
-
-Focused-clarification rule:
-- If the engine or incident window needed for the analysis is missing or ambiguous, ask exactly one focused question before analyzing the incident.
-```
-
-- Practice 1 แสดง main workflow ก่อนเพิ่ม hardening
-- Practice 2 และ 3 มีผล Before/After จาก Prompt เดิม
-- ไม่มี reliability rule อื่นเพิ่มนอกเหนือจาก 2 rules นี้
 
 ---
 

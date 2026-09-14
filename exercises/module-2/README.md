@@ -14,6 +14,8 @@ Module นี้พลจะพาเรามาสร้าง Agent ชื่
 - [Beta Engineering quotation](../../files/module-2/vendor-quotation-beta-engineering.pdf)
 - [Gamma Supply quotation](../../files/module-2/vendor-quotation-gamma-supply.pdf)
 - [Mini-test log template](../../files/module-2/mini-test-log-template.xlsx)
+- [Engine anomaly incident data - CSV (optional exercise)](../../files/module-2/engine-anomaly-incident-data.csv)
+- [Engine anomaly incident data - XLSX (optional route)](../../files/module-2/engine-anomaly-incident-data.xlsx)
 - [Optional procurement references](../../files/module-2/README.md)
 
 ## Required Sequence
@@ -23,6 +25,10 @@ Module นี้พลจะพาเรามาสร้าง Agent ชื่
 3. [Configure Suggested prompts](./exercise-3-suggested-prompts/README.md)
 4. [Apply hardening and safe completion](./exercise-4-hardening-and-safe-completion/README.md)
 5. [Run a mini-test and improve](./exercise-5-mini-test-and-improve/README.md)
+
+## Optional Exercise
+
+6. [Create an Engine Anomaly Review Assistant](./exercise-6-engine-anomaly-review-assistant/README.md) — ใช้ CSV เป็นเส้นทางหลัก ส่วน XLSX ทดลองเมื่อ Environment รองรับ แบบฝึกหัดนี้ไม่ใช่ prerequisite ของ Module 3
 
 ## Learner Output
 

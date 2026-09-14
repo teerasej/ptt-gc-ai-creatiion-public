@@ -9,6 +9,8 @@
 - [Beta Engineering quotation](./module-2/vendor-quotation-beta-engineering.pdf)
 - [Gamma Supply quotation](./module-2/vendor-quotation-gamma-supply.pdf)
 - [Mini-test log](./module-2/mini-test-log-template.xlsx)
+- [Engine anomaly incident data - CSV (optional exercise)](./module-2/engine-anomaly-incident-data.csv)
+- [Engine anomaly incident data - XLSX (optional route)](./module-2/engine-anomaly-incident-data.xlsx)
 - [Optional procurement references](./module-2/README.md)
 
 ## Module 3

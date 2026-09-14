@@ -36,3 +36,4 @@
 | 2 | 3 | [ตั้งค่า Suggested prompts](./exercises/module-2/exercise-3-suggested-prompts/README.md) |
 | 2 | 4 | [เพิ่ม Hardening และ Safe Completion](./exercises/module-2/exercise-4-hardening-and-safe-completion/README.md) |
 | 2 | 5 | [ทำ Mini-test และแก้หนึ่ง Failure](./exercises/module-2/exercise-5-mini-test-and-improve/README.md) |
+| 2 | 6 (Optional) | [สร้าง Engine Anomaly Review Assistant](./exercises/module-2/exercise-6-engine-anomaly-review-assistant/README.md) |

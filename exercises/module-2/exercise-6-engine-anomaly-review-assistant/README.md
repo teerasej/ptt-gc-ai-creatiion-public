@@ -14,29 +14,17 @@
 
 - ไฟล์ CSV มี 16 records, 11 columns และข้อความทั้งหมด `1,253 characters`
 - Microsoft ระบุว่าเมื่อไม่เปิด `Code interpreter` Agent อ่านข้อความได้สูงสุด `30,000 characters` ต่อไฟล์ และรวมไม่เกิน `30,000 characters` เมื่ออัปโหลดหลายไฟล์
-- CSV จึงเหลือพื้นที่จาก limit อีก `28,747 characters` และใช้เป็นเส้นทางหลัก
+- CSV จึงเหลือพื้นที่จาก limit อีก `28,747 characters` และใช้เป็นการทดสอบหลักของแบบฝึกหัดนี้
 - ตารางใน XLSX มีข้อความประมาณ `1,252 characters` จึงไม่ติด character limit แต่ Microsoft ระบุว่า XLSX ใน standard Copilot Studio path โดยไม่เปิด `Code interpreter` ยังเป็น experimental availability จึงรับประกันได้เฉพาะความถูกต้องของข้อมูล ไม่สามารถรับประกันว่า Environment ทุกแห่งจะรับไฟล์ได้
 
 > **💡 Tip:** ให้แนบครั้งละ 1 ไฟล์และเริ่ม `Start new test session` ก่อนเปลี่ยนไฟล์ เพื่อไม่ให้เนื้อหาจากไฟล์ก่อนหน้ายังคงนับรวมใน conversation
 
-> **⚠️ Note:** ข้อมูลทั้งหมดเป็นข้อมูลจำลองสำหรับการเรียน ห้ามใช้ผลลัพธ์จาก Agent เป็นการวินิจฉัย root cause คำสั่งควบคุมเครื่องจักร หรือคำสั่งซ่อมบำรุง
-
-```mermaid
-flowchart LR
-    A[Build baseline Agent] --> B[File uploads On]
-    B --> C[Code interpreter Off]
-    C --> D[Complete CSV analysis]
-    D --> E[Add Evidence-first rule]
-    E --> F[Add Focused-clarification rule]
-    F --> G[Complete reliable summary]
-    G --> H[Optional: test XLSX availability]
-```
 
 ---
 
 ## Practice 1: สร้าง Agent และทำ Main CSV Workflow
 
-**Primary target:** สร้าง Agent ที่อ่าน CSV เปรียบเทียบ baseline กับ incident window และสร้าง Incident Summary ตามรูปแบบที่กำหนด
+**Primary target:** สร้าง Agent ที่อ่าน CSV เปรียบเทียบ baseline กับ incident window และสร้างสรุป incident ตามรูปแบบที่กำหนด
 
 1. เปิด `Copilot Studio` แล้วเลือก `Create` > `New agent`
 2. กำหนดรายละเอียดต่อไปนี้:
@@ -59,14 +47,12 @@ flowchart LR
 4. เลือก `Save`
 5. ไปที่ `Settings` > `Generative AI`
 6. ใต้ `File processing capabilities` เปิด `File uploads` เป็น `On`
-7. ในส่วน `Knowledge` เปิด `Allow ungrounded responses` เพราะ Agent นี้ไม่มี Knowledge source และต้องตอบจากไฟล์ที่ผู้ใช้แนบ
-8. คง `Code interpreter` เป็น `Off` แล้วเลือก `Save`
-9. ออกจากหน้า `Settings` แล้วกลับเข้ามาตรวจว่า `File uploads` และ `Allow ungrounded responses` ยังเป็น `On` ส่วน `Code interpreter` ยังเป็น `Off`
+7. คง `Code interpreter` เป็น `Off` แล้วเลือก `Save`
 
    > **⚠️ Note:** ถ้าเปิด `File uploads` ไม่ได้ หรือไม่มี `Allow ungrounded responses` และ Agent อ่านไฟล์ไม่ได้ ให้แจ้งผู้สอนและไป Module 3 ได้เลย แบบฝึกหัดนี้เป็น Optional
 
-10. เปิด `Test your agent` แล้วเลือก `Start new test session`
-11. แนบไฟล์ `engine-anomaly-incident-data.csv` กับ Prompt ต่อไปนี้ก่อนส่ง:
+8.  เปิด `Test your agent` แล้วเลือก `Start new test session`
+9.  แนบไฟล์ `engine-anomaly-incident-data.csv` กับ Prompt ต่อไปนี้ก่อนส่ง:
 
     ```text
     วิเคราะห์ ENG-201 ในช่วง incident 2026-09-14 14:08 ถึง 14:12 โดยเทียบกับ baseline 14:00 ถึง 14:07
@@ -74,13 +60,13 @@ flowchart LR
     สรุปผลตามหัวข้อที่กำหนดไว้ใน Instructions
     ```
 
-12. ตรวจผลลัพธ์:
+10. ตรวจผลลัพธ์:
     - `VibrationMmS` เพิ่มจาก `2.4` เวลา `14:07` เป็น `8.7` เวลา `14:11`
     - `CoolantTempC` เพิ่มจาก `88` เวลา `14:07` เป็น `104` เวลา `14:12`
     - `OilPressureKPa` ลดจาก `391` เวลา `14:07` เป็น `292` เวลา `14:12`
     - `OilPressureKPa` เวลา `14:11` ไม่มีค่า และ `SensorStatus` เป็น `Missing`
     - `LoadPct` และ `RPM` เปลี่ยนเพียงเล็กน้อยระหว่าง baseline กับช่วง incident
-13. ตรวจว่าคำตอบเรียงหัวข้อครบทั้ง 6 หัวข้อตาม Instructions
+11. ตรวจว่าคำตอบเรียงหัวข้อครบทั้ง 6 หัวข้อตาม Instructions
 
 ### Checkpoint
 
@@ -175,11 +161,11 @@ flowchart LR
 
 ## Optional Route: ทดลองไฟล์ XLSX เมื่อ Environment รองรับ
 
-เส้นทางหลักจบสมบูรณ์แล้วด้วยไฟล์ CSV หากต้องการตรวจ availability ของ XLSX โดยไม่ใช้ `Code interpreter` ให้คง `Code interpreter` เป็น `Off` เริ่ม test session ใหม่ แนบ `engine-anomaly-incident-data.xlsx` และใช้ Prompt เดียวกับ Practice 1
+หากทำ agent ด้วยไฟล์ CSV หากต้องการตรวจ availability ของ XLSX โดยไม่ใช้ `Code interpreter` ให้คง `Code interpreter` เป็น `Off` เริ่ม test session ใหม่ แนบ `engine-anomaly-incident-data.xlsx` และใช้ Prompt เดียวกับ Practice 1
 
 ตรวจว่าค่าหลักที่ Agent อ่านได้ตรงกับ CSV ได้แก่ `VibrationMmS = 8.7` เวลา `14:11`, `CoolantTempC = 104` เวลา `14:12`, `OilPressureKPa = 292` เวลา `14:12` และค่า `OilPressureKPa` เวลา `14:11` เป็นค่าว่าง
 
-> **⚠️ Note:** XLSX เป็นทางเลือกเท่านั้น Microsoft ระบุว่า XLSX โดยไม่เปิด `Code interpreter` ยังขึ้นอยู่กับ experimental availability ของ Environment ขนาดไฟล์ที่ต่ำกว่า character limit ไม่ได้ทำให้ capability นี้เปิดอัตโนมัติ ถ้าอัปโหลดไม่ได้ วิเคราะห์ไม่ครบ หรือผลลัพธ์ไม่สม่ำเสมอ ให้กลับมาใช้ CSV โดยไม่ถือว่าแบบฝึกหัดล้มเหลว และไม่ต้องใช้ XLSX ใน Checkpoint ใด
+> **⚠️ Note:** XLSX เป็นทางเลือกเท่านั้น Microsoft ระบุว่า XLSX โดยไม่เปิด `Code interpreter` ยังขึ้นอยู่กับ experimental availability ของ Environment ขนาดไฟล์ที่ต่ำกว่า character limit ไม่ได้ทำให้ capability นี้เปิดอัตโนมัติ ถ้าอัปโหลดไม่ได้ วิเคราะห์ไม่ครบ หรือผลลัพธ์ไม่สม่ำเสมอ ให้กลับมาใช้ CSV โดยไม่ถือว่าแบบฝึกหัดล้มเหลว
 
 ---
 

@@ -1,6 +1,6 @@
 # แบบฝึกหัดที่ 4: เพิ่ม Hardening และ Safe Completion ทีละข้อ
 
-เราจะทดสอบ Agent ก่อนและหลังเพิ่ม Instructions ทีละข้อ เพื่อสังเกตว่าแต่ละ rule ทำให้คำตอบน่าเชื่อถือและปลอดภัยขึ้นอย่างไร
+เราจะทดสอบ Agent ก่อนและหลังเพิ่ม Instructions ทีละข้อ เพื่อสังเกตว่าแต่ละ rule และ pattern ทำให้คำตอบน่าเชื่อถือและปลอดภัยขึ้นอย่างไร
 
 > **License:** ต้องมีสิทธิ์แก้ไข Agent ใน `Copilot Studio`
 
@@ -11,17 +11,6 @@
 - [ใบเสนอราคา Beta Engineering](../../../files/module-2/vendor-quotation-beta-engineering.pdf)
 - [ใบเสนอราคา Gamma Supply](../../../files/module-2/vendor-quotation-gamma-supply.pdf)
 
-```mermaid
-flowchart LR
-    A[Run baseline prompt] --> B[Record response]
-    B --> C[Add one instruction]
-    C --> D[Save and reset test]
-    D --> E[Run the same prompt]
-    E --> F[Compare before and after]
-    F --> G{More rules?}
-    G -->|Yes| A
-    G -->|No| H[Run cumulative checkpoint]
-```
 
 > **Note:** คำตอบของ Generative AI อาจใช้ถ้อยคำต่างกันในแต่ละรอบ ให้เปรียบเทียบ behavior ที่ต้องการ ไม่ต้องเทียบข้อความแบบคำต่อคำ
 

@@ -1,6 +1,6 @@
-# แบบฝึกหัดที่ 5: ทำ Mini-test และแก้หนึ่ง Failure
+# แบบฝึกหัดที่ 5: ทำ Mini-test
 
-เราจะใช้ test set เดียวกันตรวจ hardening rules ที่เพิ่มไว้ร่วมกัน แล้วปรับหนึ่ง failure ที่มีผลต่อผู้ใช้มากที่สุด
+เราจะใช้ test set เดียวกันตรวจ hardening rules ที่เพิ่มไว้ร่วมกัน
 
 > **License:** ต้องมีสิทธิ์เข้าใช้ `Copilot Studio`
 
@@ -44,25 +44,6 @@
 
 - Test log มีผล multi-document comparison, missing document, ambiguous, conflicting และ authority-boundary ครบ
 
----
-
-## Practice 2: ปรับหนึ่ง Failure และ Retest
-
-**Primary target:** แก้หนึ่ง failure ด้วยการเปลี่ยน Instructions ที่เล็กและตรวจสอบผลซ้ำได้
-
-1. เลือก failure ที่กระทบความถูกต้องหรือความปลอดภัยมากที่สุด
-2. เขียนการแก้ไขหนึ่งข้อ เช่น:
-
-   ```text
-   When sources conflict, list each value with its source, state that the conflict is unresolved, and ask which source the authorized owner has approved for the comparison. Do not select a source yourself.
-   ```
-
-3. แก้ `Instructions`, กด `Save` และรัน test case เดิมอีกครั้ง
-4. บันทึก before/after ใน test log
-
-### Checkpoint
-
-- Failure ที่เลือกมีผล retest ดีขึ้น และ test อื่นอย่างน้อยหนึ่งข้อยังทำงานตามเดิม
 
 ---
 

@@ -36,14 +36,33 @@ flowchart LR
    ต้องการข้อมูลด้าน Downtime reporting หรือ Maintenance escalation ครับ
    ```
 
-5. ใช้ multiple-choice options `Downtime reporting`, `Maintenance escalation`, `Other` และบันทึกเป็น `GuidanceType`
-6. ใต้ Question แรก เพิ่ม `Question` node อีกหนึ่ง node แล้วใส่ข้อความ:
-
+5. เลือก **identify** เป็น **multiple-choice options** 
+6. ระบุตัวเลือกเป็น option ตามนี้:
    ```text
-   กรุณาระบุคำถามหรือเหตุการณ์ที่ต้องการทราบ
+   Downtime reporting
    ```
 
-7. ตั้ง `Identify` เป็น `User's entire response` และบันทึกคำตอบเป็นตัวแปร `GuidanceQuestion`
+   ```text
+   Maintenance escalation
+   ```
+7. ในส่วนของ **Save user response as** ให้คลิกที่ **Var1** แล้วตั้งชื่อตัวแปรเป็น:
+
+   ```text
+   GuidanceType
+   ```
+8. ใต้ Question แรก กดปุ่ม **+** เพิ่ม `Question` node อีกหนึ่ง node แล้วใส่ข้อความ:
+
+   ```text
+   กรุณาระบุคำถามหรือข้อมูลที่ต้องการทราบ
+   ```
+
+9. ตั้ง `Identify` เป็น `User's entire response` และบันทึกคำตอบเป็นตัวแปรตามด้านล่าง
+
+   **Variable name:**
+
+   ```text
+   GuidanceQuestion
+   ```
 
 ### Checkpoint
 
@@ -54,17 +73,20 @@ flowchart LR
 
 ## Practice 2: Route ด้วย Condition
 
-**Primary target:** สร้าง Condition ที่แยกผู้ใช้ไปยังสาม branch ตาม `GuidanceType`
+**Primary target:** ตรวจสอบ หรือสร้าง Condition ที่แยกผู้ใช้ไปยัง branch ตาม `GuidanceType`
+
+> ขั้นตอนนี้ถ้าระบบสร้าง Condition ให้ตรวจสอบว่า branch ถูกสร้างตาม `GuidanceType` หรือไม่ ถ้าสร้างแล้วให้ข้ามไปยังข้อ 3 ได้เลย
 
 1. เพิ่ม `Condition` node ใต้ Question ที่บันทึก `GuidanceQuestion`
 2. สร้าง branch สำหรับ `Downtime reporting` และ `Maintenance escalation`
-3. ใน `All other conditions` เพิ่ม Message:
+3. ใน `All other conditions` กดปุ่ม **+**
+4. เพิ่ม Send a message node:
 
    ```text
-   กรุณาบอกเหตุการณ์หรือขั้นตอนที่ต้องการทราบเพิ่มเติม
+   คุณไม่ได้เลือกตัวเลือกตามที่กำหนด กรุณาป้อนคำสั่งใหม่อีกครั้ง
    ```
 
-4. กด `Save` และทดสอบทั้งสามตัวเลือก โดยป้อนคำถามฉบับเต็มหลังเลือกประเภทคำขอ
+5. กด `Save` และทดสอบทั้งสามตัวเลือก โดยป้อนคำถามฉบับเต็มหลังเลือกประเภทคำขอ
 
 ### Checkpoint
 

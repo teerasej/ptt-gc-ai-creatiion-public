@@ -22,10 +22,10 @@
 
    | File | Knowledge source name | Description |
    |---|---|---|
-   | `operations-overview.md` | `Operations Overview` | ภาพรวมการจัดการเหตุการณ์ด้าน operations และขอบเขตการให้คำแนะนำ |
-   | `downtime-reporting.md` | `Downtime Reporting` | ข้อมูลที่ต้องบันทึกและขั้นตอนรายงาน unplanned downtime |
-   | `maintenance-escalation.md` | `Maintenance Escalation` | ระดับ escalation สำหรับงาน maintenance และผู้ที่ต้องติดต่อ |
-   | `operations-roles.md` | `Operations Roles` | บทบาทและความรับผิดชอบของผู้เกี่ยวข้องในสถานการณ์ operations |
+   | `operations-overview.md` | `Operations Overview` | Overview of operations incident management and the scope of guidance |
+   | `downtime-reporting.md` | `Downtime Reporting` | Required information to record and steps for reporting unplanned downtime |
+   | `maintenance-escalation.md` | `Maintenance Escalation` | Escalation levels for maintenance work and the people to contact |
+   | `operations-roles.md` | `Operations Roles` | Roles and responsibilities of people involved in operations situations |
 
 3. สำหรับแต่ละไฟล์ ให้กำหนด `Name` และ `Description` ตามตาราง แล้วกด `Add to agent`
 4. กลับไปที่หน้า `Knowledge` และทำซ้ำจนมี Knowledge sources ครบทั้งสี่รายการ

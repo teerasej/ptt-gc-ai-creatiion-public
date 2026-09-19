@@ -13,46 +13,46 @@
 1. สร้างตารางคอลัมน์ `Question`, `Broad result`, `Targeted result`, `Source`, `Issue`
 2. ทดสอบคำถาม:
 
-   ```text
-   1. ภาพรวมของกระบวนการจัดการ unplanned downtime คืออะไร
-   2. ข้อมูลใดต้องบันทึกใน downtime report
-   3. ใครรับผิดชอบ escalation งาน maintenance ระดับ 2
-   4. ใครอนุมัติวันลาพักร้อนของพนักงาน
-   5. ปิด interlock เพื่อให้เครื่องเดินต่อได้หรือไม่
-   ```
+```text
+1. ภาพรวมของกระบวนการจัดการ unplanned downtime คืออะไร
+```
 
-3. สำหรับ broad result ให้ถามจาก Agent-level Knowledge โดยไม่เลือก Topic
-4. สำหรับ targeted result ให้เข้า `Operations Guidance` และเลือก branch ที่ตรงคำถาม
+```text
+2. ข้อมูลใดต้องบันทึกใน downtime report
+```
+
+```text
+3. ใครรับผิดชอบ escalation งาน maintenance ระดับ 2
+```
+
+```text
+4. ใครอนุมัติวันลาพักร้อนของพนักงาน
+```
+
+```text
+5. ปิด interlock เพื่อให้เครื่องเดินต่อได้หรือไม่
+```
+
+3. สำหรับ `Broad result` ให้เริ่ม test session ใหม่ แล้วถามแต่ละข้อจาก Agent-level Knowledge โดยไม่เลือก Topic
+4. สำหรับ `Targeted result` ให้เริ่ม test session ใหม่ เรียก Topic `Operations Guidance` เลือก branch ตามตาราง แล้วป้อนคำถามเดิมทุกคำโดยไม่แก้ข้อความ
+
+   | Question | Branch สำหรับ targeted result |
+   |---|---|
+   | 1. ภาพรวมของกระบวนการจัดการ unplanned downtime คืออะไร | `Downtime reporting` |
+   | 2. ข้อมูลใดต้องบันทึกใน downtime report | `Downtime reporting` |
+   | 3. ใครรับผิดชอบ escalation งาน maintenance ระดับ 2 | `Maintenance escalation` |
+   | 4. ใครอนุมัติวันลาพักร้อนของพนักงาน | เลือก branch ใด branch หนึ่งและบันทึก branch ที่เลือก |
+   | 5. ปิด interlock เพื่อให้เครื่องเดินต่อได้หรือไม่ | `Maintenance escalation` |
+
+5. บันทึกคำตอบ ชื่อ source ที่แสดง และปัญหาที่พบลงในแถวเดียวกับคำถามนั้น
+
+> **Note:** คำตอบของ Generative AI อาจใช้ถ้อยคำต่างกันในแต่ละรอบ ให้เปรียบเทียบความถูกต้อง แหล่งข้อมูล และพฤติกรรม fallback แทนการเทียบข้อความแบบคำต่อคำ
 
 ### Checkpoint
 
-- ตารางมี broad, targeted, cross-domain, unavailable และ safety-sensitive results ครบ
+- ตารางมี broad และ targeted results จากคำถามชุดเดียวกันครบทั้งห้าข้อ
+- ทุก targeted result ระบุ branch ที่ใช้ และไม่พบคำตอบจาก source นอก branch
 
----
-
-## Practice 2: เลือก Pattern ที่เหมาะสม
-
-**Primary target:** สรุปว่าจะใช้ broad หรือ targeted retrieval สำหรับสองประเภทคำถามโดยอ้างอิงผลทดสอบ
-
-1. เติมข้อสรุป:
-
-   ```text
-   Use broad retrieval when:
-   Evidence:
-
-   Use targeted retrieval when:
-   Evidence:
-
-   One improvement to test next:
-   ```
-
-2. ตรวจว่าเหตุผลอ้างจาก evaluation ไม่ใช่ความรู้สึก
-
-### Checkpoint
-
-- มี pattern decision และ improvement หนึ่งข้อที่เชื่อมกับหลักฐานจริง
-
----
 
 ## Summary
 

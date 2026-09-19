@@ -1,6 +1,6 @@
 # แบบฝึกหัดที่ 2: เพิ่ม Agent-level Knowledge
 
-เราจะเพิ่มเอกสาร operations ทั้งสี่ไฟล์ที่ระดับ Agent แล้วทดสอบ broad retrieval สำหรับคำถามที่อาจใช้หลายแหล่ง
+เราจะเพิ่มเอกสาร operations ทั้งสี่ไฟล์ที่ระดับตัว Agent แล้วทดสอบการทำงานของ knowledge ที่สามารถดึงข้อมูลจากหลายแหล่ง ตามชุดคำถามตัวอย่าง
 
 > **License:** ต้องมีสิทธิ์เพิ่มไฟล์เป็น `Knowledge` ใน `Copilot Studio`
 
@@ -12,21 +12,32 @@
 
 ## Practice 1: เพิ่ม Knowledge ที่ระดับ Agent
 
-**Primary target:** เชื่อมเอกสาร operations ทั้งสี่เป็น Agent-level Knowledge ที่พร้อมค้นหา
+**Primary target:** เชื่อมโยงเอกสาร operations ทั้งสี่เป็น Agent-level Knowledge ที่พร้อมค้นหา
 
 1. เปิด Agent และไปที่ `Overview` > `Knowledge` > `Add knowledge`
 
    ![เปิด Add knowledge จากหน้า Agent](./images/click-add-knowledge.png)
 
-2. อัปโหลดไฟล์จาก `files/module-3/` ทั้งสี่ไฟล์
-3. ใช้ชื่อ Knowledge ให้สื่อความหมาย เช่น `Operations Overview` และ `Downtime Reporting`
-4. รอจนสถานะพร้อมใช้งาน แล้วกด `Save`
+2. เลือก `Upload file` แล้วอัปโหลดไฟล์จาก `files/module-3/` ทีละไฟล์ตามตารางนี้
+
+   | File | Knowledge source name | Description |
+   |---|---|---|
+   | `operations-overview.md` | `Operations Overview` | ภาพรวมการจัดการเหตุการณ์ด้าน operations และขอบเขตการให้คำแนะนำ |
+   | `downtime-reporting.md` | `Downtime Reporting` | ข้อมูลที่ต้องบันทึกและขั้นตอนรายงาน unplanned downtime |
+   | `maintenance-escalation.md` | `Maintenance Escalation` | ระดับ escalation สำหรับงาน maintenance และผู้ที่ต้องติดต่อ |
+   | `operations-roles.md` | `Operations Roles` | บทบาทและความรับผิดชอบของผู้เกี่ยวข้องในสถานการณ์ operations |
+
+3. สำหรับแต่ละไฟล์ ให้กำหนด `Name` และ `Description` ตามตาราง แล้วกด `Add to agent`
+4. กลับไปที่หน้า `Knowledge` และทำซ้ำจนมี Knowledge sources ครบทั้งสี่รายการ
+5. รอจนสถานะของทุก source เปลี่ยนจาก `In progress` เป็น `Ready` และไม่มี error
+6. กด `Save`
 
    ![ตรวจสถานะ Knowledge หลังอัปโหลด](./images/check-knowledge-status.png)
 
 ### Checkpoint
 
-- หน้า `Knowledge` แสดงสี่แหล่งและไม่มีสถานะ error
+- หน้า `Knowledge` แสดง `Operations Overview`, `Downtime Reporting`, `Maintenance Escalation` และ `Operations Roles`
+- Knowledge sources ทั้งสี่มีสถานะ `Ready` และไม่มี error
 
 ---
 

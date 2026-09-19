@@ -1,12 +1,14 @@
 # Module 3: RAG - Operations Knowledge Assistant
 
-Module นี้ใช้ `PTT GC Operations Knowledge Assistant` เพื่อเปรียบเทียบ RAG สองแบบ: Agent-level Knowledge สำหรับคำถามกว้าง และ Topic-level Generative answers สำหรับคำถามที่ต้องจำกัดแหล่งข้อมูล
+Module นี้พลจะพาพวกเรามาสร้างและใช้งาน `PTT GC Operations Knowledge Assistant` เพื่อเปรียบเทียบ การใช้งาน RAG สองแบบ: Agent-level Knowledge สำหรับคำถามแบบเปิดทั่วไป และ Topic-level Generative answers สำหรับคำถามที่ต้องจำกัดการตอบของแหล่งข้อมูล
 
 > **License:** ต้องมีสิทธิ์เข้าใช้ `Copilot Studio` และความสามารถเพิ่มไฟล์เป็น `Knowledge`
 
 > **⚠️ Note:** `Search only selected sources` ควบคุมแหล่งข้อมูลที่ node ใช้ค้นหา ไม่ใช่ระบบกำหนดสิทธิ์ผู้ใช้ ไฟล์ที่อัปโหลดตรงเข้า Agent ต้องเป็นข้อมูลจำลองหรือข้อมูลที่ผู้เรียนทุกคนมีสิทธิ์อ่าน
 
 ## Support Files
+
+- [ดาวน์โหลดไฟล์ประกอบทั้งหมด (.zip)](https://raw.githubusercontent.com/teerasej/ptt-gc-ai-creatiion-public/main/files/module-3/module-3-support-files.zip)
 
 - [Operations overview](../../files/module-3/operations-overview.md)
 - [Downtime reporting](../../files/module-3/downtime-reporting.md)

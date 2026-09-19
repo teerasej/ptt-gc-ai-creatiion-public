@@ -6,7 +6,7 @@
 
 1. [Module 1 - Foundations: AI and Agents](./exercises/module-1/README.md)
 2. [Module 2 - Core Build: Vendor Comparison Assistant](./exercises/module-2/README.md)
-3. Module 3 - RAG: Operations Knowledge Assistant
+3. [Module 3 - RAG: Operations Knowledge Assistant](./exercises/module-3/README.md)
 4. Module 4 - Topics, Prompt, Tools, and Agent Flow: Financial Report Assistant
 5. Module 5 - Publish, Demonstrate, Monitor, and Pilot Readiness
 6. Module 6 - Final Project Presentation Day
@@ -37,3 +37,8 @@
 | 2 | 4 | [เพิ่ม Hardening และ Safe Completion](./exercises/module-2/exercise-4-hardening-and-safe-completion/README.md) |
 | 2 | 5 | [ทำ Mini-test](./exercises/module-2/exercise-5-mini-test-and-improve/README.md) |
 | 2 | 6 (Optional) | [สร้าง Engine Anomaly Review Assistant](./exercises/module-2/exercise-6-engine-anomaly-review-assistant/README.md) |
+| 3 | 1 | [สร้างและกำหนดขอบเขต Operations Knowledge Agent](./exercises/module-3/exercise-1-create-operations-knowledge-agent/README.md) |
+| 3 | 2 | [เพิ่ม Agent-level Knowledge](./exercises/module-3/exercise-2-agent-level-knowledge/README.md) |
+| 3 | 3 | [สร้าง Topics ด้วย questions, variables และ conditions](./exercises/module-3/exercise-3-topics-questions-variables-conditions/README.md) |
+| 3 | 4 | [เพิ่ม targeted Generative answers](./exercises/module-3/exercise-4-targeted-generative-answers/README.md) |
+| 3 | 5 | [เปรียบเทียบ broad และ targeted retrieval](./exercises/module-3/exercise-5-compare-broad-targeted-retrieval/README.md) |

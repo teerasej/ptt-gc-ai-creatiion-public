@@ -29,6 +29,8 @@
 
 ## Exercise Index
 
+### Day 2
+
 | Module | Exercise | Title |
 |---|---|---|
 | 2 | 1 | [สร้างและกำหนดขอบเขต Vendor Comparison Agent](./exercises/module-2/exercise-1-create-vendor-comparison-agent/README.md) |
@@ -37,6 +39,11 @@
 | 2 | 4 | [เพิ่ม Hardening และ Safe Completion](./exercises/module-2/exercise-4-hardening-and-safe-completion/README.md) |
 | 2 | 5 | [ทำ Mini-test](./exercises/module-2/exercise-5-mini-test-and-improve/README.md) |
 | 2 | 6 (Optional) | [สร้าง Engine Anomaly Review Assistant](./exercises/module-2/exercise-6-engine-anomaly-review-assistant/README.md) |
+
+### Day 3
+
+| Module | Exercise | Title |
+|---|---|---|
 | 3 | 1 | [สร้างและกำหนดขอบเขต Operations Knowledge Agent](./exercises/module-3/exercise-1-create-operations-knowledge-agent/README.md) |
 | 3 | 2 | [เพิ่ม Agent-level Knowledge](./exercises/module-3/exercise-2-agent-level-knowledge/README.md) |
 | 3 | 3 | [สร้าง Topics ด้วย questions, variables และ conditions](./exercises/module-3/exercise-3-topics-questions-variables-conditions/README.md) |

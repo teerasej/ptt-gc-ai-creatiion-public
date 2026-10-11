@@ -287,7 +287,7 @@ flowchart LR
    ```text
     สรุป workbook ที่แนบเป็นภาษาไทย
    ระบุ period, Business Units, Revenue, Cost, reported variances และ risks 
-   ระบุข้อมูลที่ขาดหรือไม่ตรงกันด้วย ห้ามเดาตัวเลขหรือสาเหตุที่ไม่มีในไฟล์
+   ระบุข้อมูลที่ขาดหรือไม่ตรงกันด้วย 
    ```
 
 2. ใน test session เดิม เมื่อ review สรุปแล้ว ส่งคำขอนี้เพื่อเตรียมบันทึกสรุปและส่ง notification โดยยังไม่เรียก Flow
@@ -300,7 +300,7 @@ flowchart LR
 3. เมื่อ Agent ถาม `ReviewerEmail` ให้กรอกอีเมลฝึกอบรมตนเอง ตรวจ final summary, filename และ recipient แล้วตอบ
 
    ```text
-   ยืนยันข้อความสรุป ชื่อไฟล์ และอีเมลนี้ บันทึกและส่ง notification ได้
+   ยืนยัน
    ```
 
 4. ยืนยัน Tool เมื่อมี prompt แล้วตรวจสามแหล่ง
@@ -309,7 +309,8 @@ flowchart LR
    - OneDrive folder: มี `may2026-run01.txt` เปิดอ่านภาษาไทย ตัวเลข หน่วย source references และข้อจำกัดตรงกับสรุปที่ยืนยันแล้ว
    - Outlook และ Flow run history: มี notification หนึ่งฉบับ ชื่อและ Path ตรงกับ `Create file` ทุก action สำเร็จและเวลาตอบ Agent ต่ำกว่า 100 วินาที
 
-5. เริ่ม session ใหม่ paste summary เดิม ขอเตรียม archive ด้วย label ใหม่ แล้วตอบยกเลิก ต้องไม่มี Flow call, ไฟล์ใหม่ หรืออีเมลใหม่ บันทึก `E3-Cancel`
+5. เริ่ม session ใหม่ 
+6. paste summary เดิม ขอเตรียม archive ด้วย label ใหม่ แล้วตอบยกเลิก ต้องไม่มี Flow call, ไฟล์ใหม่ หรืออีเมลใหม่ 
 
    ```text
    เตรียม archive-and-notify สำหรับข้อความสรุปนี้
@@ -320,7 +321,7 @@ flowchart LR
    ยกเลิก ไม่ต้องสร้างไฟล์หรือส่ง notification
    ```
 
-6. เริ่ม session ใหม่ paste summary แล้วลองคำขอที่ขาด recipient และ label ให้ Agent ถามข้อมูลก่อน ไม่เรียก Flow 
+7. เริ่ม session ใหม่ paste summary แล้วลองคำขอที่ขาด recipient และ label ให้ Agent ถามข้อมูลก่อน ไม่เรียก Flow 
 
    ```text
    ช่วย archive สรุปนี้และส่ง notification ให้ฝ่ายการเงิน
@@ -330,10 +331,7 @@ flowchart LR
 ### Checkpoint
 
 - มีหลักฐานไฟล์หนึ่งไฟล์และ notification หนึ่งฉบับสำหรับ confirmed archive test และไม่เกิดการส่งซ้ำผ่าน direct-email Tool
-- email-only ไม่ archive; cancellation และ missing inputs ไม่ทำ external action
-- บันทึกสถานะของ failure scenarios ตามหลักฐานจริง ไม่กรอกว่า Flow มี transactional rollback หรือรับรอง exactly-once ใน production
 
-> **⚠️ Note:** สายงานหลักนี้ไม่มี rollback และไม่มี failure-response branch หากขั้นตอนใดล้มเหลว จะไม่ถึง success response ไฟล์ที่สร้างแล้วไม่ถูกลบอัตโนมัติ หาก timeout หรือ connection error ให้ตรวจ Run history, OneDrive และ Sent Items ก่อน retry เนื่องจากการส่งอาจเกิดขึ้นก่อน timeout ได้ ใช้ label ใหม่เฉพาะเมื่อตรวจผลเก่าแล้วและตั้งใจทำคำขอใหม่
 
 ## Summary
 

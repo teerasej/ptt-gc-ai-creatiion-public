@@ -1,5 +1,7 @@
 # แบบฝึกหัดที่ 3: Review, Revise, and Confirm
 
+> **Optional advanced Topic route:** หน้านี้อยู่ใน [เส้นทาง Topic เดิม](../optional-topic-route/README.md) ใช้ Topic variables ที่สร้างในสอง Exercises ก่อนหน้าของเส้นทางนั้น ดู [Module 4 main route](../README.md)
+
 เราจะให้ผู้ใช้ตรวจ draft ขอ revision และยืนยัน version สุดท้ายก่อน Agent เตรียมส่งอีเมล
 
 > **License:** ต้องมีสิทธิ์แก้ไข Topic ใน `Copilot Studio`

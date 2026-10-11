@@ -1,31 +1,48 @@
-# Module 4: Topics, Prompt, Tools, and Agent Flow
+# Module 4: From Email Tools to Financial Report Workflows
 
-Module นี้ใช้ `Financial Report Assistant` เพื่อฝึก workflow ที่รับข้อมูล วิเคราะห์ workbook ให้ผู้ใช้ review และส่งอีเมลผ่าน `Agent Flow` อย่างควบคุมได้
+เราจะสร้าง `Financial Report Assistant` หนึ่งตัว แล้วค่อย ๆ เพิ่มความสามารถจากการส่งอีเมล ไปสู่การสรุป Excel และการบันทึกสรุปพร้อมส่ง notification ด้วย `Agent Flow`
 
-> **License:** ต้องมีสิทธิ์เข้าใช้ `Copilot Studio`, สร้างและ publish `Agent Flow`, ใช้ connection ของ `Office 365 Outlook`, และเรียก `Send an email (V2)` ความพร้อมของ `Prompt` file input ต้องตรวจสอบก่อนเริ่มอบรม
+ใช้ **Standard harness** และ **generative orchestration**  โดยเพิ่ม Tools ที่ระดับ Agent ไม่ต้องสร้าง custom Topic ใหม่
+
+> **License:** ต้องมีสิทธิ์ใช้ `Copilot Studio` แบบ standalone หรือสิทธิ์องค์กรที่รองรับการเรียนนี้ พร้อม Outlook mailbox, `OneDrive for Business` และสิทธิ์สร้าง/publish `Agent Flow` ความสามารถ `Prompt` และ `Code interpreter` อาจใช้ Copilot Credits ตาม entitlement ของ environment ต้องตรวจสอบก่อนเรียน ไม่ใช่กิจกรรมที่รับรองว่าฟรีทุกบัญชี
+
+
+## Before You Begin
+
+- ใช้บัญชีฝึกอบรมของตนเองและข้อมูลจำลองเท่านั้น ทดสอบส่งอีเมลถึง mailbox ฝึกอบรมของตนเอง
+- เข้า classic experience สำหรับ **Standard harness** 
+- ใช้ Agent ตัวใหม่ของ Module นี้ ไม่เพิ่ม Tools ลง Agent จาก Module 2 หรือ Module 3
+- ต้องมี connection ของ `Office 365 Outlook` และ `OneDrive for Business` ที่ใช้บัญชีของผู้เรียนเอง
+- Exercise 2 ใช้ File input เท่านั้น ต้องผ่าน rehearsal ของ `Code interpreter` และ attachment mapping ผ่าน Agent หากติดข้อจำกัด ให้บันทึก `Environment blocked` และหยุด Exercise 2–3 จนกว่าผู้สอนจะแก้ไขและทดสอบผ่าน
+
+## Main Sequence
+
+1. [สร้าง Agent และส่งอีเมลด้วย Outlook Tool](./exercise-1-create-agent-and-send-email/README.md)
+2. [สรุป Excel ด้วย Prompt Tool](./exercise-2-summarize-excel-with-prompt-tool/README.md)
+3. [บันทึกสรุปและส่ง Notification ด้วย Agent Flow](./exercise-3-archive-summary-and-notify/README.md)
+
+> **💡 Tip:** Tool ช่วงเช้าเหมือนฝากผู้ช่วยไปส่งจดหมายหนึ่งฉบับ ส่วน Flow ช่วงบ่ายเหมือนให้ checklist ว่า “เก็บรายงานเข้าตู้ → ส่งข้อความแจ้ง → บอกผลกลับ” `Dynamic content` คือข้อมูลที่ส่งต่อจากช่องหนึ่งไปยังอีกขั้นตอน โดยไม่ต้องพิมพ์ค่าซ้ำ
 
 ## Support Files
 
 - [Financial workbook](../../files/module-4/PTT-Monthly-Financial-Report-May2026.xlsx)
-- [Financial terminology](../../files/module-4/financial-report-technical-terms-knowledge.docx)
-- [Distribution policy](../../files/module-4/financial-report-distribution-policy-knowledge.docx)
+- [Test-results template](../../files/module-4/module-4-test-results-template.md)
+- [Support guide](../../files/module-4/README.md)
 
-## Required Sequence
+## Optional Advanced Topic Route
 
-1. [Create the Financial Agent and intake Topic](./exercise-1-create-financial-agent-and-intake/README.md)
-2. [Analyze one workbook through a Prompt](./exercise-2-analyze-financial-workbook/README.md)
-3. [Review, revise, and confirm](./exercise-3-review-revise-confirm/README.md)
-4. [Build the required Agent Flow email](./exercise-4-required-agent-flow-email/README.md)
-5. [Test email paths](./exercise-5-test-email-paths/README.md)
+[เปิดเส้นทางเดิมสำหรับฝึก Topics, variables และ review loop](./optional-topic-route/README.md) เส้นทางนี้เริ่มจาก Agent อีกตัว มี prerequisites ของตนเอง และไม่จำเป็นต้องทำก่อน Exercise 1–3 ของเส้นทางหลัก
 
-## Optional Route
-
-6. [Optional - Work IQ Mail MCP](./exercise-6-optional-work-iq-mail-mcp/README.md) เพื่อเปรียบเทียบ Preview MCP route กับ Agent Flow ไม่ใช่ prerequisite ของ Module 5
-
-> **⚠️ Note:** ระหว่างทดสอบให้เปิดใช้งานเส้นทางส่งอีเมลเพียงเส้นทางเดียว เพื่อป้องกันการส่งซ้ำ
+กิจกรรม [Optional Work IQ Mail MCP](./exercise-6-optional-work-iq-mail-mcp/README.md) เป็นเนื้อหาเสริมเดิม ต้องตรวจ harness และ Preview availability แยกต่างหาก ไม่ใช่ส่วนหนึ่งของเส้นทางหลักหรือ prerequisite ของ Module 5
 
 ## Learner Output
 
-Financial Report Assistant ที่รับ request, วิเคราะห์ workbook, รองรับ revision และส่งอีเมลหนึ่งครั้งหลังผู้ใช้ยืนยัน
+`Financial Report Assistant` ที่ส่งอีเมลแบบ review ก่อนส่ง สรุป workbook ที่แนบผ่าน File input และใช้ Flow บันทึกข้อความที่ยืนยันแล้วพร้อมส่ง notification โดยมี test record แสดงผลที่สังเกตได้จริง
 
-ขั้นตอนถัดไป → [Optional Module 3.5 review](../module-3-5/README.md) หรือไปที่ [Module 5](../module-5/README.md)
+ผล static checks ของเอกสารไม่ใช่หลักฐานว่า connection, Prompt file input หรือ Flow ทำงานใน tenant แล้ว ต้อง rehearsal แยกก่อนใช้ในห้องเรียน
+
+## Summary
+
+คุณจะได้ฝึกความต่างของ Connector Tool, Prompt Tool และ Agent Flow โดยใช้สถานการณ์รายงานการเงินเดียวกัน
+
+ขั้นตอนถัดไป → [Module 5](../module-5/README.md) ซึ่งกลับไปใช้ Vendor Comparison Agent จาก Module 2 ตามเส้นทางเดิม

@@ -1,5 +1,7 @@
 # แบบฝึกหัดที่ 2: วิเคราะห์ Financial Workbook ด้วย Prompt
 
+> **Optional advanced Topic route:** หน้านี้อยู่ใน [เส้นทาง Topic เดิม](../optional-topic-route/README.md) ใช้ Intake Topic จาก Exercise 1 ของเส้นทางนั้น ไม่ใช่ Prompt Tool ของเส้นทางหลักใหม่ ดู [Module 4 main route](../README.md)
+
 เราจะเพิ่ม `Prompt` ให้ Topic วิเคราะห์ workbook หนึ่งไฟล์ และเก็บผลลัพธ์ใน `FinancialAnalysisResult`
 
 > **License:** ต้องมีสิทธิ์ใช้ `Prompt` และ `Code interpreter` ใน `Copilot Studio`; ผู้ใช้ต้อง authenticate และความพร้อมของ Excel input ต้องตรวจสอบก่อนเริ่มอบรม

@@ -1,5 +1,7 @@
 # แบบฝึกหัดที่ 1: สร้าง Financial Agent และ Intake Topic
 
+> **Optional advanced Topic route:** หน้านี้อยู่ใน [เส้นทาง Topic เดิม](../optional-topic-route/README.md) ให้เริ่ม Agent แยกตาม Starting State ไม่ใช้ต่อจาก Tools ของเส้นทางหลักใหม่ ดู [Module 4 main route](../README.md)
+
 เราจะสร้าง `Financial Report Assistant` และ Topic สำหรับเก็บช่วงเวลา Business Unit และรูปแบบรายงานให้ครบก่อนวิเคราะห์
 
 > **License:** ต้องมีสิทธิ์เข้าใช้ `Copilot Studio`

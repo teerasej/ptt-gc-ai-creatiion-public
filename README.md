@@ -7,7 +7,7 @@
 1. [Module 1 - Foundations: AI and Agents](./exercises/module-1/README.md)
 2. [Module 2 - Core Build: Vendor Comparison Assistant](./exercises/module-2/README.md)
 3. [Module 3 - RAG: Operations Knowledge Assistant](./exercises/module-3/README.md)
-4. Module 4 - Topics, Prompt, Tools, and Agent Flow: Financial Report Assistant
+4. [Module 4 - From Email Tools to Financial Report Workflows](./exercises/module-4/README.md)
 5. Module 5 - Publish, Demonstrate, Monitor, and Pilot Readiness
 6. Module 6 - Final Project Presentation Day
 
@@ -18,7 +18,7 @@
 |---|---|---|
 | 2 | `PTT GC Vendor Comparison Assistant` | Agent ที่วิเคราะห์ใบเสนอราคา เปรียบเทียบอย่างมีขอบเขต และผ่าน mini-test |
 | 3 | `PTT GC Operations Knowledge Assistant` | Agent ที่ตอบจาก Knowledge แบบกว้างและแบบเจาะจงด้วย Topic |
-| 4 | `Financial Report Assistant` | Agent ที่รับข้อมูล วิเคราะห์ไฟล์ ทบทวน และส่งรายงานผ่าน Agent Flow |
+| 4 | `Financial Report Assistant` | Agent ที่ส่งอีเมลหลัง review สรุป Excel ตาม route ที่ตรวจสอบแล้ว และ archive พร้อมส่ง notification ผ่าน Agent Flow |
 | 5 | ใช้ Agent จาก Module 2 ต่อ | Published Agent, demo evidence, Monitor observation และ Pilot Decision Pack |
 
 ## Before You Begin
@@ -49,3 +49,15 @@
 | 3 | 3 | [สร้าง Topics ด้วย questions, variables และ conditions](./exercises/module-3/exercise-3-topics-questions-variables-conditions/README.md) |
 | 3 | 4 | [เพิ่ม targeted Generative answers](./exercises/module-3/exercise-4-targeted-generative-answers/README.md) |
 | 3 | 5 | [เปรียบเทียบ broad และ targeted retrieval](./exercises/module-3/exercise-5-compare-broad-targeted-retrieval/README.md) |
+
+### Day 4
+
+| Module | Exercise | Title |
+|---|---|---|
+| 4 | Overview | [Module 4 - From Email Tools to Financial Report Workflows](./exercises/module-4/README.md) |
+| 4 | 1 | [สร้าง Agent และส่งอีเมลด้วย Outlook Tool](./exercises/module-4/exercise-1-create-agent-and-send-email/README.md) |
+| 4 | 2 | [สรุป Excel ด้วย Prompt Tool](./exercises/module-4/exercise-2-summarize-excel-with-prompt-tool/README.md) |
+| 4 | 3 | [บันทึกสรุปและส่ง Notification ด้วย Agent Flow](./exercises/module-4/exercise-3-archive-summary-and-notify/README.md) |
+| 4 | Optional advanced | [เส้นทางเดิม: Topics, variables, review loop และ Agent Flow](./exercises/module-4/optional-topic-route/README.md) |
+
+ดูเวลาเรียนและ readiness ของ Prompt file input ที่ [Module 4 guide](./exercises/module-4/README.md) เส้นทางหลักใช้ Agent ใหม่หนึ่งตัวต่อเนื่องกัน เส้นทาง Topic เป็นกิจกรรมเสริมแยก Agent

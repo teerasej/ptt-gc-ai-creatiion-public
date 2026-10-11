@@ -1,0 +1,31 @@
+PREPARED SYNTHETIC FALLBACK — FOR TRAINING ONLY
+ข้อความนี้เตรียมจาก workbook จำลอง ไม่ใช่ผลจากการรัน Prompt Tool หรือ Agent ใน tenant
+Source: PTT-Monthly-Financial-Report-May2026.xlsx
+ใช้เพื่อ review และทำ archive-and-notify เมื่อ Prompt route ใช้งานไม่ได้ คง label นี้ไว้ใน AnalysisSummary และไฟล์ที่ archive
+
+1. Reporting period and Business Units
+- Period: May 2026 ตาม Summary!B2:B5
+- Business Units: Olefins, Aromatics, Performance Chemicals, GC ตาม Summary!A2:A5
+- ไม่ตีความ GC เป็น consolidated total เนื่องจาก workbook ไม่ระบุความสัมพันธ์นี้
+
+2. Key Revenue and Cost figures
+- Olefins: Revenue 448.49 million THB (Summary!C2); Cost 379.26 million THB (Summary!D2)
+- Aromatics: Revenue 320.21 million THB (Summary!C3); Cost 287.79 million THB (Summary!D3)
+- Performance Chemicals: Revenue 202.48 million THB (Summary!C4); Cost 198.09 million THB (Summary!D4)
+- GC: Revenue 190.79 million THB (Summary!C5); Cost 175.96 million THB (Summary!D5)
+
+3. Reported variances, statuses, and risks
+- Olefins: Variance_Percent 18.25% (Summary!E2), Status On Track (Summary!F2), KeyRisk Maintenance downtime (Summary!G2)
+- Aromatics: Variance_Percent 11.26% (Summary!E3), Status On Track (Summary!F3), KeyRisk Maintenance downtime (Summary!G3)
+- Performance Chemicals: Variance_Percent 2.22% (Summary!E4), Status Watch (Summary!F4), KeyRisk FX sensitivity (Summary!G4)
+- GC: Variance_Percent 8.43% (Summary!E5), Status On Track (Summary!F5), KeyRisk Energy cost spike (Summary!G5)
+- Supporting observation: Olefins / Utilities ใน Costs มี Amount 82.71 million THB (Costs!C3), Budget 68.27 million THB (Costs!D3), reported Variance_Percent 21.16% (Costs!E3)
+
+4. Missing information and inconsistencies
+- Not available: นิยามและฐานเปรียบเทียบของ Variance_Percent ใน Summary ไม่มีคำอธิบายชัดเจน จึงไม่เรียกค่านี้ว่า growth, margin หรือ budget variance
+- ข้อมูล Olefins Revenue ข้าม sheet ไม่ตรงกัน: Summary!C2 = 448.49 million THB ขณะที่ Variance_Analysis!C2 = 119.00 ใน row ที่ระบุ BU Olefins และ Metric Revenue (Variance_Analysis!A2:B2)
+- Not available: หลักฐาน reconciliation และคำอธิบายว่าค่าทั้งสองใช้ขอบเขต/หน่วยเดียวกันหรือไม่ จึงไม่เลือกค่าใดแทนอีกค่าโดยอัตโนมัติ
+- Volume mix shift เป็น Root_Cause ที่ระบุใน Variance_Analysis!G2 เท่านั้น ไม่ใช่หลักฐานยืนยันสาเหตุของ Summary!C2
+- ไม่บวกยอดจาก Summary, Revenue, Costs และ Variance_Analysis เข้าด้วยกัน และไม่สร้างยอดรวมองค์กรจากข้อมูลชุดนี้
+
+ข้อความนี้ยังไม่อนุญาตให้ส่งอีเมลหรือสร้างไฟล์ ผู้ใช้ต้อง review แล้วระบุ ReportLabel ใหม่และ ReviewerEmail ก่อนยืนยันการทำ Flow

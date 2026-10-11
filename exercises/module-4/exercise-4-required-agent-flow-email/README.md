@@ -1,5 +1,7 @@
 # แบบฝึกหัดที่ 4: สร้าง Required Agent Flow Email
 
+> **Optional advanced Topic route:** หน้านี้อยู่ใน [เส้นทาง Topic เดิม](../optional-topic-route/README.md) คำว่า required หมายถึงเส้นทาง Topic นี้ ส่วน Flow ในเส้นทางหลักใหม่คือ archive-and-notify ดู [Module 4 main route](../README.md)
+
 เราจะสร้าง Agent Flow ที่ส่งรายงานด้วย `Send an email (V2)` หลังผู้ใช้ยืนยัน และคืน success message เฉพาะเมื่อ email action สำเร็จ
 
 > **License:** ต้องมีสิทธิ์สร้างและ publish `Agent Flow` และใช้ connection ของ `Office 365 Outlook`

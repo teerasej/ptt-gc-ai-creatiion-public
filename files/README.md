@@ -21,6 +21,8 @@
 
 - [Module 4 support guide](./module-4/README.md)
 - [Financial workbook](./module-4/PTT-Monthly-Financial-Report-May2026.xlsx)
+- [Prepared synthetic summary (.txt)](./module-4/prepared-financial-summary-synthetic.txt)
+- [Module 4 test-results template](./module-4/module-4-test-results-template.md)
 - [Financial terminology](./module-4/financial-report-technical-terms-knowledge.docx)
 - [Distribution policy](./module-4/financial-report-distribution-policy-knowledge.docx)
 

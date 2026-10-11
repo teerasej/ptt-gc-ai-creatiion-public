@@ -1,5 +1,7 @@
 # แบบฝึกหัดที่ 6 (Optional): เปรียบเทียบ Work IQ Mail MCP
 
+> **Historical optional extension:** หน้านี้เป็นกิจกรรมเสริมเดิม ต้องตรวจ harness, Preview availability และชื่อ Tool ใน tenant แยกก่อนใช้ ไม่จำเป็นใน [Module 4 main route](../README.md) ที่ใช้ Standard harness กับ Office 365 Outlook connector
+
 กิจกรรมเสริมนี้ให้ลอง `Work IQ Mail` ซึ่งเป็น MCP server แบบ `Preview` แล้วเปรียบเทียบกับ required Agent Flow โดยไม่ทำให้เกิดการส่งอีเมลซ้ำ
 
 > **License:** ต้องมีสิทธิ์ใช้ Microsoft 365 Copilot, `Copilot Studio`, Outlook mailbox และ tenant ต้องอนุญาต `Work IQ Mail` Preview ก่อนเริ่ม

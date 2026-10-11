@@ -1,5 +1,7 @@
 # แบบฝึกหัดที่ 5: ทดสอบ Email Paths
 
+> **Optional advanced Topic route:** หน้านี้อยู่ใน [เส้นทาง Topic เดิม](../optional-topic-route/README.md) ใช้ Agent และ Flow ของเส้นทางนั้น สำหรับ test record ของเส้นทางหลักใหม่ดู [Module 4 main route](../README.md)
+
 เราจะทดสอบเส้นทางสำเร็จ การแก้ไข การยกเลิก ข้อมูลผู้รับหาย connection failure และ send failure โดยยืนยันว่าแต่ละคำขอส่งไม่เกินหนึ่งอีเมล
 
 > **License:** ต้องมีสิทธิ์ทดสอบ Agent และ Agent Flow ด้วยบัญชีฝึกอบรม

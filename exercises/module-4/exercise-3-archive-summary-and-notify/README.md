@@ -339,7 +339,6 @@ flowchart LR
 
 ## Microsoft Learn Reference
 
-ตรวจผ่าน Microsoft Learn MCP เมื่อ 11 October 2026:
 
 - [Create an agent flow as a tool](https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-flow-create)
 - [Call an agent flow from an agent](https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-use-flow)

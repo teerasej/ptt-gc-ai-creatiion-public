@@ -171,7 +171,6 @@ flowchart LR
 
 ## Microsoft Learn Reference
 
-ตรวจผ่าน Microsoft Learn MCP เมื่อ 11 October 2026:
 
 - [Create a prompt](https://learn.microsoft.com/en-us/microsoft-copilot-studio/create-custom-prompt)
 - [Use Code interpreter in prompts](https://learn.microsoft.com/en-us/microsoft-copilot-studio/code-interpreter-for-prompts)

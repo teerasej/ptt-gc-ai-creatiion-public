@@ -222,7 +222,6 @@ flowchart LR
 
 ## Microsoft Learn Reference
 
-ตรวจผ่าน Microsoft Learn MCP เมื่อ 11 October 2026:
 
 - [Access Standard harness agents](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/switch-experiences)
 - [Create an agent](https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-first-bot)
